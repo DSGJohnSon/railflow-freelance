@@ -116,6 +116,41 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/**
+ * Edge shadows on a horizontally scrollable box, revealed only when it can
+ * actually scroll. The two background-coloured covers are attached to the
+ * content (`local`) so they slide away as it scrolls, uncovering the shadows,
+ * which stay pinned to the box (`scroll`). With no overflow the covers sit
+ * exactly over the shadows and nothing shows.
+ */
+@utility scroll-shadow-x {
+  background-image:
+    linear-gradient(to right, var(--background) 0 0.75rem, transparent 2rem),
+    linear-gradient(to left, var(--background) 0 0.75rem, transparent 2rem),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--foreground) 12%, transparent),
+      transparent
+    ),
+    linear-gradient(
+      to left,
+      color-mix(in oklab, var(--foreground) 12%, transparent),
+      transparent
+    );
+  background-position:
+    left center,
+    right center,
+    left center,
+    right center;
+  background-size:
+    2rem 100%,
+    2rem 100%,
+    0.75rem 100%,
+    0.75rem 100%;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

@@ -1,0 +1,207 @@
+[
+  {
+    "id": "hgc-siteweb",
+    "title": "HGC - Site Web",
+    "clientId": "holidaygeekcup-rozJbI",
+    "quotes": [
+      {
+        "id": "kBx3AklBEUypfTpqwpGmaQ",
+        "label": "PROJET SITE WEB VITRINE - HGC - 2025-0056",
+        "amount": 175000,
+        "type": "DEVIS",
+        "file": "/files/quotes/DEVIS_2025-0056.pdf"
+      },
+      {
+        "id": "tfF8yy6iQkS440NGIddiRg",
+        "label": "Module \"Nos Services\" - SITE WEB HGC - 2026-0005",
+        "amount": 36000,
+        "type": "DEVIS",
+        "file": "/files/quotes/DEVIS_2026-0005.pdf"
+      }
+    ],
+    "dues": [
+      {
+        "id": "sKcSQ5G5b0W/HURE4kO9fw",
+        "date": "2026-01-02",
+        "status": "PAID",
+        "invoice": {
+          "id": "1Wp63lCGGUSflv0myR8opA",
+          "label": "Échéance 1/16",
+          "amount": 31000,
+          "type": "FACTURE",
+          "file": "/files/quotes/DEVIS_2025-0056.pdf"
+        }
+      },
+      {
+        "id": "F5elHYz0TvK83uKxlxMSsg",
+        "date": "2026-03-27",
+        "status": "PAID",
+        "invoice": {
+          "id": "fXKXKL_Qc4-MH0a-91rgMQ",
+          "label": "Échéance 2/16",
+          "amount": 12000,
+          "type": "FACTURE",
+          "file": "/files/invoices/Echeance_2_.pdf"
+        }
+      },
+      {
+        "id": "ldLmAKfkMeqCLiTH_vmBVg",
+        "date": "2026-04-27",
+        "status": "PAID",
+        "invoice": {
+          "id": "9e3sqfZZTHJxEGQfAZ293A",
+          "label": "Échéance 3/16",
+          "amount": 12000,
+          "type": "FACTURE",
+          "file": "/files/invoices/Echeance_3_16.pdf"
+        }
+      },
+      {
+        "id": "Zp1ZHtG6VR7PsDn2E0b8oA",
+        "date": "2026-05-27",
+        "status": "PAID",
+        "invoice": {
+          "id": "2WJqm5nSjjehnu3dIy1KpQ",
+          "label": "Échéance 4/16",
+          "amount": 12000,
+          "type": "FACTURE",
+          "file": "/files/invoices/Echeance_4_16.pdf"
+        }
+      },
+      {
+        "id": "avVLahlYLL0D82YZGdh4mQ",
+        "date": "2026-06-27",
+        "status": "PAID",
+        "invoice": {
+          "id": "i_CizRUIfI4-BajZi4w91w",
+          "label": "Échéance 5/16",
+          "amount": 12000,
+          "type": "FACTURE",
+          "file": "/files/invoices/Echeance_5_16.pdf"
+        }
+      },
+      {
+        "id": "RvTYSnGwlCn9qThERudvzw",
+        "date": "2026-07-27",
+        "status": "PAID",
+        "invoice": {
+          "id": "QJEwP2TY2WZn39Arlgo0aw",
+          "label": "Échéance 6/16",
+          "amount": 12000,
+          "type": "FACTURE",
+          "file": "/files/invoices/Echeance_6_16.pdf"
+        }
+      },
+      {
+        "id": "_h3ARWX5-cqe9-z4isx77A",
+        "date": "2026-08-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "p1KXOSN_cOJ4wA81AD5YdA",
+          "label": "Échéance 7/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "B7_nuptagN07chmmEMr8hg",
+        "date": "2026-09-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "UAtZiVr-bvuhQd6v9NmX4w",
+          "label": "Échéance 8/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "m6lbAL4ewYy6oQ2azAtpdw",
+        "date": "2026-10-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "A6pHYBeRRf2c55mvQ9jU1w",
+          "label": "Échéance 9/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "NJcVQCdDvCduoyQVJC7qLg",
+        "date": "2026-11-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "ErEsI-7R-F6i6XHk8sxfDA",
+          "label": "Échéance 10/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "mRqDrY8aEdTq4QIhRGg43A",
+        "date": "2026-12-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "BEbKUoCqqQDGMuzIpy1bxg",
+          "label": "Échéance 11/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "lFyzUKhL3YtnCKYJGidpEQ",
+        "date": "2027-01-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "iBfhytg5HoCRitu-KK4Tcw",
+          "label": "Échéance 12/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "slgPV_k-8IPhWZ44APJaeQ",
+        "date": "2027-02-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "GGpU76islrGdC-ahUYmuew",
+          "label": "Échéance 13/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "9-CZvUNDQL4asjQ_quGPng",
+        "date": "2027-03-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "6QCNrvxN6sWQhjRg2jkAyA",
+          "label": "Échéance 14/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "tcYIEz4F04ZDpe9IbG2RCg",
+        "date": "2027-04-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "Irnd9XLNxRrlFDrGY65Rww",
+          "label": "Échéance 15/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      },
+      {
+        "id": "9F57GEXHYu8JXAstiJZIxA",
+        "date": "2027-05-27",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "_j9bYFjM_IEJztUlumsopA",
+          "label": "Échéance 16/16",
+          "amount": 12000,
+          "type": "FACTURE"
+        }
+      }
+    ]
+  }
+]
