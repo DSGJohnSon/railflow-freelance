@@ -20,7 +20,8 @@ import {
   startOfToday,
   toIsoDate,
 } from "@/lib/format"
-import { dueState, type DueWithProject } from "@/lib/queries"
+import { paymentDeadline } from "@/lib/payment-terms"
+import { breakdownOf, dueState, type DueWithProject } from "@/lib/queries"
 import { cn } from "@/lib/utils"
 
 type RowProps = {
@@ -31,11 +32,114 @@ type RowProps = {
   editable: boolean
 }
 
+/**
+ * The deadline leads and the issue date follows, because the deadline is what
+ * the badge is judged against: showing the issue date on its own would leave a
+ * row reading "01/08 — À venir" a month after it was issued.
+ */
+function DueDate({ due, late }: { due: DueWithProject; late: boolean }) {
+  const deadline = paymentDeadline(due)
+
+  return (
+    <div className="tabular-nums">
+      <time
+        dateTime={toIsoDate(deadline)}
+        className={cn(
+          "block",
+          late
+            ? "font-medium text-red-700 dark:text-red-400"
+            : "text-muted-foreground"
+        )}
+      >
+        {formatShortDate(deadline)}
+      </time>
+      {/* No PDF means the invoice has not actually gone out yet, so there is no
+          issue date to announce — only a slot in the schedule. */}
+      <span className="block text-xs text-muted-foreground/70">
+        {due.invoice?.file ? (
+          <>
+            émise le{" "}
+            <time dateTime={toIsoDate(due.date)}>
+              {formatShortDate(due.date)}
+            </time>
+          </>
+        ) : (
+          "Pas encore émis"
+        )}
+      </span>
+      {/* Stated as a receipt, never compared to the deadline: the money is in,
+          and a settled invoice has nothing left to answer for. */}
+      {due.paidOn ? (
+        <span className="block text-xs text-emerald-700 dark:text-emerald-400">
+          réglée le{" "}
+          <time dateTime={toIsoDate(due.paidOn)}>
+            {formatShortDate(due.paidOn)}
+          </time>
+        </span>
+      ) : null}
+    </div>
+  )
+}
+
+/**
+ * What the invoice charges, line by line.
+ *
+ * Since an invoice is identified by its own number, the label alone no longer
+ * says what is inside it — a monthly invoice covers every prestation currently
+ * being billed. This is where "AC_2026_0011" becomes readable.
+ */
+function InvoiceBreakdown({ due }: { due: DueWithProject }) {
+  const entries = breakdownOf(due)
+
+  if (entries.length === 0) {
+    return null
+  }
+
+  // Whatever the shares do not account for. Zero in normal use; it appears
+  // when an invoice total was edited without its breakdown following, and is
+  // shown rather than hidden so the discrepancy cannot pass unnoticed.
+  const unallocated =
+    (due.invoice?.amount ?? 0) -
+    entries.reduce((total, entry) => total + entry.amount, 0)
+
+  return (
+    <ul className="mt-1.5 space-y-0.5 text-xs font-normal text-muted-foreground">
+      {entries.map((entry) => (
+        <li key={`${entry.line.id}-${entry.index}`} className="flex gap-2">
+          <span className="min-w-0 flex-1">
+            {entry.line.label}{" "}
+            <span className="tabular-nums">
+              · {entry.index}/{entry.count}
+            </span>
+          </span>
+          <span className="shrink-0 tabular-nums">
+            {formatAmount(entry.amount)}
+          </span>
+        </li>
+      ))}
+
+      {unallocated !== 0 ? (
+        <li className="flex gap-2 text-red-700 dark:text-red-400">
+          <span className="min-w-0 flex-1">Non ventilé</span>
+          <span className="shrink-0 tabular-nums">
+            {formatAmount(unallocated)}
+          </span>
+        </li>
+      ) : null}
+    </ul>
+  )
+}
+
 function InvoiceLabel({ due }: { due: DueWithProject }) {
-  return due.invoice ? (
-    <DocumentLink document={due.invoice} />
-  ) : (
-    <span className="text-muted-foreground">Facture non émise</span>
+  if (!due.invoice) {
+    return <span className="text-muted-foreground">Facture non émise</span>
+  }
+
+  return (
+    <>
+      <DocumentLink document={due.invoice} />
+      <InvoiceBreakdown due={due} />
+    </>
   )
 }
 
@@ -83,39 +187,35 @@ function DueRow({ due, clientId, state, showProject, editable }: RowProps) {
           "bg-red-500/4 hover:bg-red-500/8 dark:bg-red-400/4 dark:hover:bg-red-400/8"
       )}
     >
-      <TableCell
-        className={cn(
-          "pl-4 tabular-nums",
-          late
-            ? "font-medium text-red-700 dark:text-red-400"
-            : "text-muted-foreground"
-        )}
-      >
-        <time dateTime={toIsoDate(due.date)}>{formatShortDate(due.date)}</time>
+      <TableCell className="pl-4 align-top">
+        <DueDate due={due} late={late} />
       </TableCell>
 
-      <TableCell className="max-w-88 font-medium whitespace-normal">
+      {/* Every cell aligns to the top: the breakdown makes the label cell the
+          tallest, and vertically centred amounts would drift away from the
+          invoice they belong to. */}
+      <TableCell className="max-w-88 align-top font-medium whitespace-normal">
         <InvoiceLabel due={due} />
       </TableCell>
 
       {showProject ? (
-        <TableCell>
+        <TableCell className="align-top">
           <ProjectLink due={due} clientId={clientId} />
         </TableCell>
       ) : null}
 
-      <TableCell className="text-right tabular-nums">
+      <TableCell className="text-right align-top tabular-nums">
         {due.invoice ? formatAmount(due.invoice.amount) : "—"}
       </TableCell>
 
-      <TableCell className={editable ? "" : "pr-4"}>
+      <TableCell className={cn("align-top", !editable && "pr-4")}>
         <div className="flex justify-end">
           <DueStateBadge state={state} />
         </div>
       </TableCell>
 
       {editable ? (
-        <TableCell className="pr-4">
+        <TableCell className="pr-4 align-top">
           <RowActions due={due} />
         </TableCell>
       ) : null}
@@ -134,18 +234,8 @@ function DueCard({ due, clientId, state, showProject, editable }: RowProps) {
     <li
       className={cn("space-y-2 p-4", late && "bg-red-500/4 dark:bg-red-400/4")}
     >
-      <div className="flex items-start justify-between gap-3">
-        <time
-          dateTime={toIsoDate(due.date)}
-          className={cn(
-            "text-sm tabular-nums",
-            late
-              ? "font-medium text-red-700 dark:text-red-400"
-              : "text-muted-foreground"
-          )}
-        >
-          {formatShortDate(due.date)}
-        </time>
+      <div className="flex items-start justify-between gap-3 text-sm">
+        <DueDate due={due} late={late} />
         <DueStateBadge state={state} />
       </div>
 
@@ -213,7 +303,7 @@ function DuesTable({
       <Table containerClassName="hidden scroll-shadow-x md:block">
         <TableHeader>
           <TableRow className="bg-muted/40 hover:bg-muted/40">
-            <TableHead className="pl-4">Date</TableHead>
+            <TableHead className="pl-4">Date limite</TableHead>
             <TableHead>Libellé</TableHead>
             {showProject ? <TableHead>Projet</TableHead> : null}
             <TableHead className="text-right">Montant</TableHead>

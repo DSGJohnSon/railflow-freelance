@@ -6,7 +6,7 @@ import {
   DeleteProjectDialog,
   EditProjectDialog,
 } from "@/components/admin/project-dialogs"
-import { AmountBar } from "@/components/amount-bar"
+import { BillingBar } from "@/components/billing-bar"
 import {
   Card,
   CardAction,
@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { formatAmount, formatDate, plural } from "@/lib/format"
+import { paymentDeadline } from "@/lib/payment-terms"
 import { getNextDue, summarize } from "@/lib/queries"
 
 function ProjectCard({
@@ -66,19 +67,26 @@ function ProjectCard({
             <span className="font-heading text-lg tabular-nums">
               {formatAmount(summary.quoted)}
             </span>
-            <span className="text-xs text-muted-foreground tabular-nums">
-              {summary.progress}% réglé
+            <span className="text-xs text-muted-foreground">
+              <span className="tabular-nums">{summary.progress}%</span> du
+              contrat
             </span>
           </div>
-          <AmountBar value={summary.progress} />
+          <BillingBar
+            total={summary.quoted}
+            paid={summary.paid}
+            waiting={summary.waiting}
+            planned={summary.planned}
+            notStarted={summary.notStarted}
+          />
         </div>
 
         <p className="border-t pt-4 text-sm text-muted-foreground">
           {nextDue ? (
             <>
-              Prochaine échéance le{" "}
+              Prochain règlement attendu le{" "}
               <span className="text-foreground">
-                {formatDate(nextDue.date)}
+                {formatDate(paymentDeadline(nextDue))}
               </span>
             </>
           ) : (

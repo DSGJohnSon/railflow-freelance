@@ -5,201 +5,1086 @@
     "clientId": "holidaygeekcup-rozJbI",
     "quotes": [
       {
-        "id": "kBx3AklBEUypfTpqwpGmaQ",
+        "id": "aV9eq2eceotFwZd5W4El5g",
         "label": "PROJET SITE WEB VITRINE - HGC - 2025-0056",
         "amount": 175000,
+        "file": "/files/quotes/DEVIS_2025-0056.pdf",
         "type": "DEVIS",
-        "file": "/files/quotes/DEVIS_2025-0056.pdf"
+        "lines": [
+          {
+            "id": "0xukn0WIZ1I7O-7HSv3XtQ",
+            "label": "Site web vitrine",
+            "schedule": [
+              31000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000,
+              12000
+            ],
+            "startedOn": "2026-02-11"
+          }
+        ]
       },
       {
-        "id": "tfF8yy6iQkS440NGIddiRg",
+        "id": "D9IizvEH87VBcRSEyk9yMg",
         "label": "Module \"Nos Services\" - SITE WEB HGC - 2026-0005",
         "amount": 36000,
+        "file": "/files/quotes/DEVIS_2026-0005.pdf",
         "type": "DEVIS",
-        "file": "/files/quotes/DEVIS_2026-0005.pdf"
+        "lines": [
+          {
+            "id": "7CnGE9XrK6HZCTzIbGxn5Q",
+            "label": "Module « Nos Services »",
+            "schedule": [
+              12000,
+              12000,
+              12000
+            ],
+            "startedOn": "2027-03-01"
+          }
+        ]
       }
     ],
     "dues": [
       {
-        "id": "sKcSQ5G5b0W/HURE4kO9fw",
-        "date": "2026-01-02",
+        "id": "Tzzt7rgFHBFHRm9pQv3DFg",
+        "date": "2026-02-11",
         "status": "PAID",
+        "paidOn": "2026-02-27",
         "invoice": {
-          "id": "1Wp63lCGGUSflv0myR8opA",
-          "label": "Échéance 1/16",
+          "id": "flhMlOilH3xD145tbXQ9Zw",
+          "label": "AC_2026_0001",
           "amount": 31000,
+          "file": "/files/invoices/Echeance_1_.pdf",
           "type": "FACTURE",
-          "file": "/files/quotes/DEVIS_2025-0056.pdf"
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 31000,
+              "index": 1
+            }
+          ]
         }
       },
       {
-        "id": "F5elHYz0TvK83uKxlxMSsg",
-        "date": "2026-03-27",
+        "id": "eEdFfC_Zx4YmegSZDPUK9w",
+        "date": "2026-03-01",
         "status": "PAID",
+        "paidOn": "2026-03-27",
         "invoice": {
-          "id": "fXKXKL_Qc4-MH0a-91rgMQ",
-          "label": "Échéance 2/16",
+          "id": "EzeQ1_ENR2WlUMhSHcBU4A",
+          "label": "AC_2026_0002",
           "amount": 12000,
+          "file": "/files/invoices/Echeance_2_.pdf",
           "type": "FACTURE",
-          "file": "/files/invoices/Echeance_2_.pdf"
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 2
+            }
+          ]
         }
       },
       {
-        "id": "ldLmAKfkMeqCLiTH_vmBVg",
-        "date": "2026-04-27",
+        "id": "bA3w2WXxcMrTh8FThVPuJA",
+        "date": "2026-04-01",
         "status": "PAID",
+        "paidOn": "2026-04-27",
         "invoice": {
-          "id": "9e3sqfZZTHJxEGQfAZ293A",
-          "label": "Échéance 3/16",
+          "id": "nTahaZkMG7su8CzLz043GQ",
+          "label": "AC_2026_0003",
           "amount": 12000,
+          "file": "/files/invoices/Echeance_3_16.pdf",
           "type": "FACTURE",
-          "file": "/files/invoices/Echeance_3_16.pdf"
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 3
+            }
+          ]
         }
       },
       {
-        "id": "Zp1ZHtG6VR7PsDn2E0b8oA",
-        "date": "2026-05-27",
+        "id": "Xw5sSTC3m-MxF17tKUDU9A",
+        "date": "2026-05-01",
         "status": "PAID",
+        "paidOn": "2026-05-27",
         "invoice": {
-          "id": "2WJqm5nSjjehnu3dIy1KpQ",
-          "label": "Échéance 4/16",
+          "id": "LTOTTFrZ-35IOwa8ECnIWQ",
+          "label": "AC_2026_0004",
           "amount": 12000,
+          "file": "/files/invoices/Echeance_4_16.pdf",
           "type": "FACTURE",
-          "file": "/files/invoices/Echeance_4_16.pdf"
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 4
+            }
+          ]
         }
       },
       {
-        "id": "avVLahlYLL0D82YZGdh4mQ",
-        "date": "2026-06-27",
+        "id": "ne1NsUgNVNk9oEUbss1ncw",
+        "date": "2026-06-01",
         "status": "PAID",
+        "paidOn": "2026-06-27",
         "invoice": {
-          "id": "i_CizRUIfI4-BajZi4w91w",
-          "label": "Échéance 5/16",
+          "id": "vCwNejcYzC_ZpyxRkJUeYw",
+          "label": "AC_2026_0005",
           "amount": 12000,
+          "file": "/files/invoices/Echeance_5_16.pdf",
           "type": "FACTURE",
-          "file": "/files/invoices/Echeance_5_16.pdf"
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 5
+            }
+          ]
         }
       },
       {
-        "id": "RvTYSnGwlCn9qThERudvzw",
-        "date": "2026-07-27",
+        "id": "zmBs_BHgFK9XAWWrok_oXA",
+        "date": "2026-07-01",
         "status": "PAID",
+        "paidOn": "2026-07-27",
         "invoice": {
-          "id": "QJEwP2TY2WZn39Arlgo0aw",
-          "label": "Échéance 6/16",
+          "id": "RR0ezH2aKXyF3Zj6piD5-Q",
+          "label": "AC_2026_0006",
+          "amount": 12000,
+          "file": "/files/invoices/Echeance_6_16.pdf",
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 6
+            }
+          ]
+        }
+      },
+      {
+        "id": "xQqiYlegxsqN1YzuGU4O8g",
+        "date": "2026-08-01",
+        "status": "WAITING",
+        "invoice": {
+          "id": "KexPhrYCBrThZjicbkKB9A",
+          "label": "AC_2026_0007",
+          "amount": 12000,
+          "file": "/files/invoices/Echeance_7_16.pdf",
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 7
+            }
+          ]
+        }
+      },
+      {
+        "id": "FDKm6lINnEe3bEPs-iMMig",
+        "date": "2026-09-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "zJbr_v4J6bbzi0jQChk0zw",
+          "label": "Facture — septembre 2026",
           "amount": 12000,
           "type": "FACTURE",
-          "file": "/files/invoices/Echeance_6_16.pdf"
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 8
+            }
+          ]
         }
       },
       {
-        "id": "_h3ARWX5-cqe9-z4isx77A",
-        "date": "2026-08-27",
+        "id": "rD6d8-jRdaakMZX27CJrXQ",
+        "date": "2026-10-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "p1KXOSN_cOJ4wA81AD5YdA",
-          "label": "Échéance 7/16",
+          "id": "t5kvDz8AZ14nWB34I3hiLw",
+          "label": "Facture — octobre 2026",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 9
+            }
+          ]
         }
       },
       {
-        "id": "B7_nuptagN07chmmEMr8hg",
-        "date": "2026-09-27",
+        "id": "QBEqv7lbTbvgSQ6VBxHLfA",
+        "date": "2026-11-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "UAtZiVr-bvuhQd6v9NmX4w",
-          "label": "Échéance 8/16",
+          "id": "hy1JJFZcksoE2Ap0Fb3Z9Q",
+          "label": "Facture — novembre 2026",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 10
+            }
+          ]
         }
       },
       {
-        "id": "m6lbAL4ewYy6oQ2azAtpdw",
-        "date": "2026-10-27",
+        "id": "xJkRvU9PKFduOOJWFsUaXQ",
+        "date": "2026-12-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "A6pHYBeRRf2c55mvQ9jU1w",
-          "label": "Échéance 9/16",
+          "id": "bBYTX97Idyi6Zoq23N1rHQ",
+          "label": "Facture — décembre 2026",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 11
+            }
+          ]
         }
       },
       {
-        "id": "NJcVQCdDvCduoyQVJC7qLg",
-        "date": "2026-11-27",
+        "id": "rO80Kyy4NLaJgzIg7kfstA",
+        "date": "2027-01-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "ErEsI-7R-F6i6XHk8sxfDA",
-          "label": "Échéance 10/16",
+          "id": "8daX4J2BgYrhfPYEnJHcsQ",
+          "label": "Facture — janvier 2027",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 12
+            }
+          ]
         }
       },
       {
-        "id": "mRqDrY8aEdTq4QIhRGg43A",
-        "date": "2026-12-27",
+        "id": "oGzNJvUj9GSf2mRbNgWvwQ",
+        "date": "2027-02-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "BEbKUoCqqQDGMuzIpy1bxg",
-          "label": "Échéance 11/16",
+          "id": "mvZOgQBqgVYXnUsBWOHznw",
+          "label": "Facture — février 2027",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "0xukn0WIZ1I7O-7HSv3XtQ",
+              "amount": 12000,
+              "index": 13
+            }
+          ]
         }
       },
       {
-        "id": "lFyzUKhL3YtnCKYJGidpEQ",
-        "date": "2027-01-27",
+        "id": "YHPJQ6PDatpgQmIgeqsPGw",
+        "date": "2027-03-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "iBfhytg5HoCRitu-KK4Tcw",
-          "label": "Échéance 12/16",
+          "id": "4TARiqVyb9efgl4gcI2JBw",
+          "label": "Facture — mars 2027",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "7CnGE9XrK6HZCTzIbGxn5Q",
+              "amount": 12000,
+              "index": 1
+            }
+          ]
         }
       },
       {
-        "id": "slgPV_k-8IPhWZ44APJaeQ",
-        "date": "2027-02-27",
+        "id": "hXoGvkU-TtTpAN91nqEhDA",
+        "date": "2027-04-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "GGpU76islrGdC-ahUYmuew",
-          "label": "Échéance 13/16",
+          "id": "-h4PYKRHGX9GujQKiC40dw",
+          "label": "Facture — avril 2027",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "7CnGE9XrK6HZCTzIbGxn5Q",
+              "amount": 12000,
+              "index": 2
+            }
+          ]
         }
       },
       {
-        "id": "9-CZvUNDQL4asjQ_quGPng",
-        "date": "2027-03-27",
+        "id": "2Hf0cuvvX17Uwd0EZ5yEPA",
+        "date": "2027-05-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "6QCNrvxN6sWQhjRg2jkAyA",
-          "label": "Échéance 14/16",
+          "id": "Ow7xtj0sW_fzoMTaajIlmg",
+          "label": "Facture — mai 2027",
           "amount": 12000,
-          "type": "FACTURE"
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "7CnGE9XrK6HZCTzIbGxn5Q",
+              "amount": 12000,
+              "index": 3
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "siteswebsolarhomesolarca-tFax",
+    "title": "Sites Web SolarHome & Solar Car 2026/2027",
+    "clientId": "solarcar-y9YCOW",
+    "quotes": [
+      {
+        "id": "seMU6CmomjilMbGiPFz3jw",
+        "label": "REFONTE SITES SOLAR CAR & SOLAR HOME",
+        "amount": 767000,
+        "file": "/files/quotes/REFONTE_SITES_SOLAR_CAR_SOLAR_HOME.pdf",
+        "type": "DEVIS",
+        "lines": [
+          {
+            "id": "ZT99JalTfy1zDJN_y0gUZw",
+            "label": "Retouches & Design Logo Solar Home",
+            "schedule": [
+              18000
+            ],
+            "startedOn": "2026-05-01"
+          },
+          {
+            "id": "nRLbOwbUKLCzzKtHjvA7ag",
+            "label": "Flyer Solar Home",
+            "schedule": [
+              9000
+            ],
+            "startedOn": "2026-05-01"
+          },
+          {
+            "id": "Ba3JMVpIJgQeKcQZmO__lg",
+            "label": "Suivi + Hébergement Solar",
+            "schedule": [
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500
+            ],
+            "startedOn": "2026-05-01"
+          },
+          {
+            "id": "LkrQjAbpVBNP705Hx7d8Lg",
+            "label": "SolarHome - Site web",
+            "schedule": [
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500
+            ],
+            "startedOn": "2026-05-01"
+          },
+          {
+            "id": "0X0_TKFYGDhvSW-Ucwpphw",
+            "label": "SolarBackoffice Admin",
+            "schedule": [
+              16000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000,
+              8000
+            ],
+            "startedOn": "2026-05-01"
+          },
+          {
+            "id": "yWunzCQTa0YRRETIqAweQg",
+            "label": "SolarCar - Site web",
+            "schedule": [
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500,
+              7500
+            ],
+            "startedOn": "2026-05-01"
+          }
+        ]
+      }
+    ],
+    "dues": [
+      {
+        "id": "RrQy8GcMuJHGt6RkATBXbg",
+        "date": "2026-05-01",
+        "status": "PAID",
+        "paidOn": "2026-07-02",
+        "invoice": {
+          "id": "kve7zW_aCunoGkPFU3tmQA",
+          "label": "Facture — mai 2026",
+          "amount": 65500,
+          "file": "/files/invoices/Facture_mai_2026.pdf",
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "ZT99JalTfy1zDJN_y0gUZw",
+              "amount": 18000,
+              "index": 1
+            },
+            {
+              "lineId": "nRLbOwbUKLCzzKtHjvA7ag",
+              "amount": 9000,
+              "index": 1
+            },
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 1
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 1
+            },
+            {
+              "lineId": "0X0_TKFYGDhvSW-Ucwpphw",
+              "amount": 16000,
+              "index": 1
+            },
+            {
+              "lineId": "yWunzCQTa0YRRETIqAweQg",
+              "amount": 7500,
+              "index": 1
+            }
+          ]
         }
       },
       {
-        "id": "tcYIEz4F04ZDpe9IbG2RCg",
-        "date": "2027-04-27",
+        "id": "5Yb3Jts3pzSvdni7GqOhow",
+        "date": "2026-08-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Irnd9XLNxRrlFDrGY65Rww",
-          "label": "Échéance 15/16",
-          "amount": 12000,
-          "type": "FACTURE"
+          "id": "m2WJpR_AOwPcNlrwf9tK1A",
+          "label": "Facture — août 2026",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 2
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 2
+            }
+          ]
         }
       },
       {
-        "id": "9F57GEXHYu8JXAstiJZIxA",
-        "date": "2027-05-27",
+        "id": "gS5OwgIO6BdvOxCPZjuGyg",
+        "date": "2026-09-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "_j9bYFjM_IEJztUlumsopA",
-          "label": "Échéance 16/16",
-          "amount": 12000,
-          "type": "FACTURE"
+          "id": "BGkNYulWzkNrqIObs51KHA",
+          "label": "Facture — septembre 2026",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 3
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "mRqaNQdcie8SzwXET8_f8w",
+        "date": "2026-10-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "81pbBYH2r9gOSJ1YUcmrCQ",
+          "label": "Facture — octobre 2026",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 4
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "ymMGraoAMFM0FbJtQfabDA",
+        "date": "2026-11-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "oDqJXHE-SFEXWL8Z7XtI9g",
+          "label": "Facture — novembre 2026",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 5
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 5
+            }
+          ]
+        }
+      },
+      {
+        "id": "vjobMvSEurSLH5qfYmkJDw",
+        "date": "2026-12-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "wovkVmQSrGSNeAee8I6DSA",
+          "label": "Facture — décembre 2026",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 6
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 6
+            }
+          ]
+        }
+      },
+      {
+        "id": "zNR_uscOMCwBvdhmOe__cw",
+        "date": "2027-01-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "m3ZJPavy-Lji3IiSBCVkQg",
+          "label": "Facture — janvier 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 7
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 7
+            }
+          ]
+        }
+      },
+      {
+        "id": "WvMS_B5WH5EHid7Hzzoi9A",
+        "date": "2027-02-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "z3XbyZq4y4clWFpMdmupbg",
+          "label": "Facture — février 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 8
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 8
+            }
+          ]
+        }
+      },
+      {
+        "id": "zCYLY5cDZ7UEDYNueM736A",
+        "date": "2027-03-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "uxUa0ucOJ63yBjFCCyxY7w",
+          "label": "Facture — mars 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 9
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 9
+            }
+          ]
+        }
+      },
+      {
+        "id": "13M-bvKu95zlSzQEGM5Fnw",
+        "date": "2027-04-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "ViiKcSnKkfQNkGRC71mlmA",
+          "label": "Facture — avril 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 10
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 10
+            }
+          ]
+        }
+      },
+      {
+        "id": "xD7SXjBHvlDQSluI81PlQQ",
+        "date": "2027-05-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "ZM8p6Ar6Agt8BJeQ2LdBHA",
+          "label": "Facture — mai 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 11
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 11
+            }
+          ]
+        }
+      },
+      {
+        "id": "uhF9R7H6rjf5ehO9gjhO4w",
+        "date": "2027-06-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "cVMnJ7hJfPpduPU_A-Nnng",
+          "label": "Facture — juin 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 12
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 12
+            }
+          ]
+        }
+      },
+      {
+        "id": "hcZtVIBuM85WHSaqBeLC3w",
+        "date": "2027-07-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "UB9RMtH0Sgz6lSBjj63MHg",
+          "label": "Facture — juillet 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 13
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 13
+            }
+          ]
+        }
+      },
+      {
+        "id": "V8GQtaeiQ7yKrdemrRDbKA",
+        "date": "2027-08-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "Bs7rxTGynuBy38G4-Em84Q",
+          "label": "Facture — août 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 14
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 14
+            }
+          ]
+        }
+      },
+      {
+        "id": "_oB_HHoo5EkqA09u0AqMDg",
+        "date": "2027-09-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "Sjq5W6SFcTmBmeuPbwhK8A",
+          "label": "Facture — septembre 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 15
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 15
+            }
+          ]
+        }
+      },
+      {
+        "id": "O1e3xEdMQr8c_4DFqLUEww",
+        "date": "2027-10-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "jloe5Oct89f0VdMgkkkgCQ",
+          "label": "Facture — octobre 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 16
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 16
+            }
+          ]
+        }
+      },
+      {
+        "id": "7yIauON6p8jwVeTBr1fwUg",
+        "date": "2027-11-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "qrn4iX3SQvQL_x1ypt1HjQ",
+          "label": "Facture — novembre 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 17
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 17
+            }
+          ]
+        }
+      },
+      {
+        "id": "T0-8RQz3YAn2IU6ufquMzw",
+        "date": "2027-12-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "7XRo8d0xpVlo65iCMBwa0g",
+          "label": "Facture — décembre 2027",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 18
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 18
+            }
+          ]
+        }
+      },
+      {
+        "id": "e8KRzNJBUJ90u3tBszmQDQ",
+        "date": "2028-01-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "tvDa-DzkIUQiRDbn6WbPog",
+          "label": "Facture — janvier 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 19
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 19
+            }
+          ]
+        }
+      },
+      {
+        "id": "0GYP1tSK9JSNFICr6QwEXQ",
+        "date": "2028-02-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "ykYM-fru3gJzteLFUhDVvg",
+          "label": "Facture — février 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 20
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 20
+            }
+          ]
+        }
+      },
+      {
+        "id": "k_eMVg84g826uRLmdSxnHw",
+        "date": "2028-03-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "yPJU1YovBAEE2MqyJr89jw",
+          "label": "Facture — mars 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 21
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 21
+            }
+          ]
+        }
+      },
+      {
+        "id": "9ip8aEOg3LnBfOI11cu-uQ",
+        "date": "2028-04-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "hXtqQN6jsDC0NznAXNxJ8A",
+          "label": "Facture — avril 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 22
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 22
+            }
+          ]
+        }
+      },
+      {
+        "id": "4l47bVI4-b0iH5JlTWn0og",
+        "date": "2028-05-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "U_NQpwNW7f_Pf-hoJ470Yg",
+          "label": "Facture — mai 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 23
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 23
+            }
+          ]
+        }
+      },
+      {
+        "id": "09KAKf5-rYgv8b54viJzEA",
+        "date": "2028-06-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "g384WZfdoD8c9CuLlcdTeg",
+          "label": "Facture — juin 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 24
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 24
+            }
+          ]
         }
       }
     ]

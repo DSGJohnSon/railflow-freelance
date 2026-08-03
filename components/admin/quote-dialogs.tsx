@@ -2,13 +2,13 @@
 
 import { IconPencil, IconPlus, IconTrash } from "@tabler/icons-react"
 
-import type { Document } from "@/data/types"
+import type { Quote } from "@/data/types"
 import { Field, FormDialog } from "@/components/admin/form-dialog"
 import { Button } from "@/components/ui/button"
 import { deleteQuote, saveQuote } from "@/lib/actions/documents"
 import { formatAmountInput } from "@/lib/format"
 
-function QuoteFields({ quote }: { quote?: Document }) {
+function QuoteFields({ quote }: { quote?: Quote }) {
   return (
     <>
       {quote ? <input type="hidden" name="quoteId" value={quote.id} /> : null}
@@ -67,7 +67,7 @@ function EditQuoteDialog({
   quote,
 }: {
   projectId: string
-  quote: Document
+  quote: Quote
 }) {
   return (
     <FormDialog
@@ -90,7 +90,7 @@ function DeleteQuoteDialog({
   quote,
 }: {
   projectId: string
-  quote: Document
+  quote: Quote
 }) {
   return (
     <FormDialog

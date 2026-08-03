@@ -61,9 +61,18 @@ async function loadProjectsUncached(): Promise<Project[]> {
 
   return parsed.data.map((project) => ({
     ...project,
+    quotes: project.quotes?.map((quote) => ({
+      ...quote,
+      lines: quote.lines?.map((line) => ({
+        ...line,
+        // Absent while the prestation is still waiting on delivery.
+        startedOn: line.startedOn ? parseIsoDate(line.startedOn) : undefined,
+      })),
+    })),
     dues: project.dues?.map((due) => ({
       ...due,
       date: parseIsoDate(due.date),
+      paidOn: due.paidOn ? parseIsoDate(due.paidOn) : undefined,
     })),
   }))
 }
@@ -86,7 +95,18 @@ export async function saveClients(clients: Client[]) {
 export async function saveProjects(projects: Project[]) {
   const stored: StoredProject[] = projects.map((project) => ({
     ...project,
-    dues: project.dues?.map((due) => ({ ...due, date: toIsoDate(due.date) })),
+    quotes: project.quotes?.map((quote) => ({
+      ...quote,
+      lines: quote.lines?.map((line) => ({
+        ...line,
+        startedOn: line.startedOn ? toIsoDate(line.startedOn) : undefined,
+      })),
+    })),
+    dues: project.dues?.map((due) => ({
+      ...due,
+      date: toIsoDate(due.date),
+      paidOn: due.paidOn ? toIsoDate(due.paidOn) : undefined,
+    })),
   }))
 
   await writeJsonFile(projectsFile, projectsFileSchema.parse(stored))

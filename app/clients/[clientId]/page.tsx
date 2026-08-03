@@ -12,6 +12,7 @@ import { ProjectCard } from "@/components/project-card"
 import { Section } from "@/components/section"
 import { isEditingEnabled } from "@/lib/editing"
 import { formatAddress, initials, plural } from "@/lib/format"
+import { PAYMENT_TERM_NOTICE } from "@/lib/payment-terms"
 import {
   getClient,
   getClientProjects,
@@ -119,7 +120,7 @@ export default async function Page({ params }: Params) {
 
       <Section
         title="Échéances de facturation"
-        description="Toutes les échéances, payées et à venir."
+        description={`Toutes les échéances, payées et à venir. ${PAYMENT_TERM_NOTICE}`}
       >
         <DuesTable
           dues={dues}

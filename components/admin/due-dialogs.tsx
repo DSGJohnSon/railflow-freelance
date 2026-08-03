@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/select"
 import { deleteDue, saveDue } from "@/lib/actions/documents"
 import { formatAmountInput, toIsoDate } from "@/lib/format"
+import { PAYMENT_TERM_DAYS } from "@/lib/payment-terms"
 
 // "En retard" is deliberately absent: it is derived from the date, not chosen.
 const statusOrder: DueStatus[] = ["FUTURE", "WAITING", "PAID"]
@@ -66,14 +67,27 @@ function DueFields({ due }: { due?: Due }) {
       {due ? <input type="hidden" name="dueId" value={due.id} /> : null}
 
       <Field
-        label="Date d'échéance"
+        label="Date d'émission de la facture"
         name="date"
         type="date"
         defaultValue={due ? toIsoDate(due.date) : ""}
+        hint={`La date limite de règlement en découle : ${PAYMENT_TERM_DAYS} jours plus tard.`}
         required
       />
 
       <StatusField value={status} onValueChange={setStatus} />
+
+      {/* Only for a settled due: the field would be meaningless on anything
+          still awaiting payment, and the action drops the value anyway. */}
+      {status === "PAID" ? (
+        <Field
+          label="Réglée le"
+          name="paidOn"
+          type="date"
+          defaultValue={due?.paidOn ? toIsoDate(due.paidOn) : ""}
+          hint="Facultatif. Affiché comme un reçu — aucun retard n'en est déduit."
+        />
+      ) : null}
 
       <div className="grid gap-4 border-t pt-4">
         <p className="text-xs text-muted-foreground">

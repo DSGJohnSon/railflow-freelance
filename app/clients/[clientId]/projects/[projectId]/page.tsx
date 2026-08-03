@@ -1,17 +1,25 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { IconCalendarCheck, IconCalendarDue } from "@tabler/icons-react"
+import {
+  IconAlertTriangle,
+  IconCalendarCheck,
+  IconCalendarDue,
+} from "@tabler/icons-react"
 
 import { CreateDueDialog } from "@/components/admin/due-dialogs"
 import { EditingNotice } from "@/components/admin/editing-notice"
 import { CreateQuoteDialog } from "@/components/admin/quote-dialogs"
+import { CreateServiceLineDialog } from "@/components/admin/service-line-dialogs"
 import { BillingStats } from "@/components/billing-stats"
 import { DuesTable } from "@/components/dues-table"
 import { PageBreadcrumb } from "@/components/page-breadcrumb"
 import { QuotesTable } from "@/components/quotes-table"
 import { Section } from "@/components/section"
+import { ServiceLinesTable } from "@/components/service-lines-table"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { isEditingEnabled } from "@/lib/editing"
-import { formatDate } from "@/lib/format"
+import { formatAmount, formatDate } from "@/lib/format"
+import { paymentDeadline, PAYMENT_TERM_NOTICE } from "@/lib/payment-terms"
 import {
   getClient,
   getDues,
@@ -19,7 +27,9 @@ import {
   getNextDue,
   getProject,
   getProjects,
+  lineMismatches,
   summarize,
+  summarizeLines,
 } from "@/lib/queries"
 
 type Params = { params: Promise<{ clientId: string; projectId: string }> }
@@ -53,6 +63,8 @@ export default async function Page({ params }: Params) {
   }
 
   const summary = summarize([project])
+  const lines = summarizeLines([project])
+  const mismatches = lineMismatches([project])
   const dues = getDues([project])
   const nextDue = getNextDue([project])
   const lastDue = getLastDue([project])
@@ -78,9 +90,9 @@ export default async function Page({ params }: Params) {
             <IconCalendarDue className="size-4 shrink-0" />
             {nextDue ? (
               <>
-                Prochaine échéance le{" "}
+                Prochain règlement attendu le{" "}
                 <span className="text-foreground">
-                  {formatDate(nextDue.date)}
+                  {formatDate(paymentDeadline(nextDue))}
                 </span>
               </>
             ) : (
@@ -90,9 +102,9 @@ export default async function Page({ params }: Params) {
           {lastDue ? (
             <li className="flex items-center gap-1.5">
               <IconCalendarCheck className="size-4 shrink-0" />
-              Dernière échéance le{" "}
+              Fin de l&apos;échéancier le{" "}
               <span className="text-foreground">
-                {formatDate(lastDue.date)}
+                {formatDate(paymentDeadline(lastDue))}
               </span>
             </li>
           ) : null}
@@ -115,9 +127,51 @@ export default async function Page({ params }: Params) {
         />
       </Section>
 
+      {/* Hidden on a project billed as a single block, where an empty state
+          between the quotes and the schedule would just be noise — but always
+          shown while editing, otherwise the first poste could never be added. */}
+      {lines.length > 0 || editable ? (
+        <Section
+          title="Postes"
+          description="Les prestations vendues, et où en est chacune. Une prestation non livrée n'a pas encore de dates : ses mensualités partent de sa mise en service."
+          action={
+            editable ? (
+              <CreateServiceLineDialog
+                projectId={project.id}
+                quotes={project.quotes ?? []}
+              />
+            ) : undefined
+          }
+        >
+          <div className="space-y-4">
+            {mismatches.map(({ quote, lined }) => (
+              <Alert key={quote.id} variant="destructive">
+                <IconAlertTriangle />
+                <AlertTitle>
+                  Les postes de « {quote.label} » ne totalisent pas le montant
+                  du devis
+                </AlertTitle>
+                <AlertDescription>
+                  {formatAmount(lined)} répartis sur les postes contre{" "}
+                  {formatAmount(quote.amount)} devisés. L&apos;écart de{" "}
+                  {formatAmount(Math.abs(quote.amount - lined))} apparaît en «
+                  non démarré » tant que le découpage n&apos;est pas corrigé.
+                </AlertDescription>
+              </Alert>
+            ))}
+
+            <ServiceLinesTable
+              lines={lines}
+              projectId={project.id}
+              editable={editable}
+            />
+          </div>
+        </Section>
+      ) : null}
+
       <Section
         title="Échéances de facturation"
-        description="Le détail des règlements passés et à venir."
+        description={`Le détail des règlements passés et à venir. ${PAYMENT_TERM_NOTICE}`}
         action={
           editable ? <CreateDueDialog projectId={project.id} /> : undefined
         }

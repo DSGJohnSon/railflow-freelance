@@ -15,6 +15,11 @@ const shortDateFormatter = new Intl.DateTimeFormat("fr-FR", {
   year: "numeric",
 })
 
+const monthFormatter = new Intl.DateTimeFormat("fr-FR", {
+  month: "long",
+  year: "numeric",
+})
+
 /** Amounts are stored in cents. */
 export function formatAmount(cents: number) {
   return currencyFormatter.format(cents / 100)
@@ -31,6 +36,11 @@ export function formatDate(date: Date) {
 
 export function formatShortDate(date: Date) {
   return shortDateFormatter.format(date)
+}
+
+/** "septembre 2026" — how a monthly invoice names the month it covers. */
+export function formatMonth(date: Date) {
+  return monthFormatter.format(date)
 }
 
 /**
@@ -56,6 +66,27 @@ export function parseIsoDate(iso: string) {
   const [year, month, day] = iso.split("-").map(Number)
 
   return new Date(year, month - 1, day)
+}
+
+/**
+ * Day arithmetic on the local calendar. Going through the date fields rather
+ * than adding milliseconds keeps the result on local midnight even when a DST
+ * switch falls inside the span.
+ */
+export function addDays(date: Date, days: number) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days)
+}
+
+/**
+ * Month arithmetic for instalment plans, clamped to the end of the month: one
+ * month after the 31st is the 28th, 30th or 31st, never a spill into the month
+ * after. A plan started on the 31st would otherwise skip February entirely.
+ */
+export function addMonths(date: Date, months: number) {
+  const month = date.getMonth() + months
+  const lastDay = new Date(date.getFullYear(), month + 1, 0).getDate()
+
+  return new Date(date.getFullYear(), month, Math.min(date.getDate(), lastDay))
 }
 
 /**

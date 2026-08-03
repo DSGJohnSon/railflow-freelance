@@ -6,7 +6,7 @@ import {
   DeleteClientDialog,
   EditClientDialog,
 } from "@/components/admin/client-dialogs"
-import { AmountBar } from "@/components/amount-bar"
+import { BillingBar } from "@/components/billing-bar"
 import {
   Card,
   CardAction,
@@ -79,9 +79,17 @@ async function ClientCard({
               {formatAmount(summary.quoted)}
             </span>
           </div>
-          <AmountBar value={summary.progress} />
-          <p className="text-xs text-muted-foreground tabular-nums">
-            {formatAmount(summary.paid)} réglés · {summary.progress}%
+          <BillingBar
+            total={summary.quoted}
+            paid={summary.paid}
+            waiting={summary.waiting}
+            planned={summary.planned}
+            notStarted={summary.notStarted}
+          />
+          <p className="text-xs text-muted-foreground">
+            <span className="tabular-nums">{formatAmount(summary.paid)}</span>{" "}
+            réglés · <span className="tabular-nums">{summary.progress}%</span>{" "}
+            du contrat
           </p>
         </div>
       </CardContent>

@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 
-import type { Document, DueStatus, Project } from "@/data/types"
+import type { DueStatus, Invoice, Project } from "@/data/types"
 import { EditingError, runAction, type ActionResult } from "@/lib/editing"
 import { firstIssue, text, upload } from "@/lib/form"
 import { parseIsoDate } from "@/lib/format"
@@ -112,13 +112,17 @@ export async function deleteQuote(formData: FormData): Promise<ActionResult> {
  * is reported on its own rather than as a blanket "invoice required".
  *
  * Only the label and the amount are mandatory; the PDF can come later.
+ *
+ * The breakdown across service lines is carried over untouched: it is set when
+ * a prestation is put in service, not from this form, and rebuilding the
+ * invoice from the fields alone would silently drop it.
  */
 async function resolveInvoice(
   status: DueStatus,
   fields: { label?: string; amount?: string },
   pdf: File | null,
-  previous: Document | undefined
-): Promise<Document | undefined> {
+  previous: Invoice | undefined
+): Promise<Invoice | undefined> {
   const touched = Boolean(fields.label || fields.amount || pdf)
 
   if (status === "FUTURE" && !touched) {
@@ -156,6 +160,7 @@ async function resolveInvoice(
     amount,
     type: "FACTURE",
     file,
+    breakdown: previous?.breakdown,
   }
 }
 
@@ -164,6 +169,7 @@ export async function saveDue(formData: FormData): Promise<ActionResult> {
     const parsed = dueFormSchema.safeParse({
       date: text(formData, "date"),
       status: text(formData, "status"),
+      paidOn: text(formData, "paidOn"),
       invoiceLabel: text(formData, "invoiceLabel"),
       invoiceAmount: text(formData, "invoiceAmount"),
     })
@@ -197,15 +203,31 @@ export async function saveDue(formData: FormData): Promise<ActionResult> {
 
     const date = parseIsoDate(parsed.data.date)
 
+    // Only a settled due carries a payment date. Moving one back to "en
+    // attente" drops it, so a due can never claim to have been paid on a day
+    // its own status denies.
+    const paidOn =
+      parsed.data.status === "PAID" && parsed.data.paidOn
+        ? parseIsoDate(parsed.data.paidOn)
+        : undefined
+
+    if (paidOn && paidOn < date) {
+      throw new EditingError(
+        "Le règlement ne peut pas précéder l'émission de la facture."
+      )
+    }
+
     if (existing) {
       existing.date = date
       existing.status = parsed.data.status
+      existing.paidOn = paidOn
       existing.invoice = invoice
     } else {
       dues.push({
         id: createDueId(),
         date,
         status: parsed.data.status,
+        paidOn,
         invoice,
       })
       project.dues = dues

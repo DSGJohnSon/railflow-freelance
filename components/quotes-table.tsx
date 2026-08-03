@@ -1,6 +1,6 @@
 import { IconFileText } from "@tabler/icons-react"
 
-import type { Document } from "@/data/types"
+import type { Quote } from "@/data/types"
 import {
   DeleteQuoteDialog,
   EditQuoteDialog,
@@ -23,7 +23,7 @@ function QuotesTable({
   projectId,
   editable = false,
 }: {
-  quotes: Document[]
+  quotes: Quote[]
   projectId: string
   editable?: boolean
 }) {
