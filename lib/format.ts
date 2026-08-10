@@ -69,12 +69,11 @@ export function parseIsoDate(iso: string) {
 }
 
 /**
- * Day arithmetic on the local calendar. Going through the date fields rather
- * than adding milliseconds keeps the result on local midnight even when a DST
- * switch falls inside the span.
+ * The last day of the date's month, on local midnight. Day 0 of the next
+ * month rather than a 28/29/30/31 lookup, so February needs no special case.
  */
-export function addDays(date: Date, days: number) {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days)
+export function endOfMonth(date: Date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0)
 }
 
 /**

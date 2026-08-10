@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/select"
 import { deleteDue, saveDue } from "@/lib/actions/documents"
 import { formatAmountInput, toIsoDate } from "@/lib/format"
-import { PAYMENT_TERM_DAYS } from "@/lib/payment-terms"
 
 // "En retard" is deliberately absent: it is derived from the date, not chosen.
 const statusOrder: DueStatus[] = ["FUTURE", "WAITING", "PAID"]
@@ -71,7 +70,7 @@ function DueFields({ due }: { due?: Due }) {
         name="date"
         type="date"
         defaultValue={due ? toIsoDate(due.date) : ""}
-        hint={`La date limite de règlement en découle : ${PAYMENT_TERM_DAYS} jours plus tard.`}
+        hint="La date limite de règlement en découle : le dernier jour du même mois."
         required
       />
 
