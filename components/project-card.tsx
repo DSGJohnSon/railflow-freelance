@@ -7,6 +7,7 @@ import {
   EditProjectDialog,
 } from "@/components/admin/project-dialogs"
 import { BillingBar } from "@/components/billing-bar"
+import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardAction,
@@ -20,9 +21,15 @@ import { getNextDue, summarize } from "@/lib/queries"
 
 function ProjectCard({
   project,
+  note,
   editable = false,
 }: {
   project: Project
+  /**
+   * Why the card sits on a page that does not own the project — e.g. a client
+   * listed as billing entity of another client's project.
+   */
+  note?: string
   editable?: boolean
 }) {
   const summary = summarize([project])
@@ -47,6 +54,14 @@ function ProjectCard({
               {plural(quotes.length, "devis", "devis")} ·{" "}
               {plural(dues.length, "échéance", "échéances")}
             </p>
+            {note ? (
+              <Badge
+                variant="outline"
+                className="mt-2 font-normal text-muted-foreground"
+              >
+                {note}
+              </Badge>
+            ) : null}
           </div>
           <CardAction className="relative z-10 flex items-center gap-0.5">
             {editable ? (

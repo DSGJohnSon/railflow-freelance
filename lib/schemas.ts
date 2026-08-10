@@ -25,6 +25,7 @@ const storedServiceLineSchema = z.object({
   label: z.string().min(1),
   schedule: z.array(z.number().int().nonnegative()).min(1),
   startedOn: isoDate.optional(),
+  billedTo: z.string().min(1).optional(),
 })
 
 const invoiceLineSchema = z.object({
@@ -49,6 +50,7 @@ export const storedDueSchema = z.object({
   status: z.enum(["FUTURE", "WAITING", "PAID"]),
   paidOn: isoDate.optional(),
   invoice: invoiceSchema.optional(),
+  billedTo: z.string().min(1).optional(),
 })
 
 export const storedProjectSchema = z.object({

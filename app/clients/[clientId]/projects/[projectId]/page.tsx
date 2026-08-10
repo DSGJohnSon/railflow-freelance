@@ -22,6 +22,7 @@ import { formatAmount, formatDate } from "@/lib/format"
 import { paymentDeadline, PAYMENT_TERM_NOTICE } from "@/lib/payment-terms"
 import {
   getClient,
+  getClients,
   getDues,
   getLastDue,
   getNextDue,
@@ -62,6 +63,7 @@ export default async function Page({ params }: Params) {
     notFound()
   }
 
+  const clients = await getClients()
   const summary = summarize([project])
   const lines = summarizeLines([project])
   const mismatches = lineMismatches([project])
@@ -139,6 +141,8 @@ export default async function Page({ params }: Params) {
               <CreateServiceLineDialog
                 projectId={project.id}
                 quotes={project.quotes ?? []}
+                clients={clients}
+                projectClientId={project.clientId}
               />
             ) : undefined
           }
@@ -163,6 +167,8 @@ export default async function Page({ params }: Params) {
             <ServiceLinesTable
               lines={lines}
               projectId={project.id}
+              clients={clients}
+              projectClientId={project.clientId}
               editable={editable}
             />
           </div>
@@ -176,7 +182,7 @@ export default async function Page({ params }: Params) {
           editable ? <CreateDueDialog projectId={project.id} /> : undefined
         }
       >
-        <DuesTable dues={dues} clientId={client.id} editable={editable} />
+        <DuesTable dues={dues} clients={clients} editable={editable} />
       </Section>
     </div>
   )

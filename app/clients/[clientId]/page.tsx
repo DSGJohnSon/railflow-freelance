@@ -18,6 +18,7 @@ import {
   getClientProjects,
   getClients,
   getDues,
+  getProjects,
   summarize,
 } from "@/lib/queries"
 
@@ -52,6 +53,19 @@ export default async function Page({ params }: Params) {
   }
 
   const projects = await getClientProjects(client.id)
+  const clients = await getClients()
+
+  // Projects owned by another client but billing at least one poste through
+  // this entity. Listed as cross-links to their canonical page, nothing more:
+  // the contractual figures stay with the owner, so nothing is counted twice.
+  const billedVia = (await getProjects()).filter(
+    (project) =>
+      project.clientId !== client.id &&
+      (project.quotes ?? []).some((quote) =>
+        (quote.lines ?? []).some((line) => line.billedTo === client.id)
+      )
+  )
+
   const summary = summarize(projects)
   const dues = getDues(projects)
   const editable = isEditingEnabled()
@@ -94,18 +108,35 @@ export default async function Page({ params }: Params) {
 
       <Section
         title="Projets"
-        description={plural(projects.length, "projet", "projets")}
+        description={
+          billedVia.length > 0
+            ? `${plural(projects.length, "projet", "projets")} · ${plural(
+                billedVia.length,
+                "projet facturé via cette entité",
+                "projets facturés via cette entité"
+              )}`
+            : plural(projects.length, "projet", "projets")
+        }
         action={
           editable ? <CreateProjectDialog clientId={client.id} /> : undefined
         }
       >
-        {projects.length > 0 ? (
+        {projects.length > 0 || billedVia.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 editable={editable}
+              />
+            ))}
+            {/* Read-only on purpose: the project belongs to another client,
+                and its card here is a doorway, not a second control panel. */}
+            {billedVia.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                note="Entité de facturation"
               />
             ))}
           </div>
@@ -124,7 +155,7 @@ export default async function Page({ params }: Params) {
       >
         <DuesTable
           dues={dues}
-          clientId={client.id}
+          clients={clients}
           showProject={projects.length > 1}
           editable={editable}
         />

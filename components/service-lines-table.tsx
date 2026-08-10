@@ -24,6 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import type { Client } from "@/data/types"
 import { formatAmount, formatDate } from "@/lib/format"
 import type { LineState, LineSummary } from "@/lib/queries"
 import { cn } from "@/lib/utils"
@@ -122,13 +123,25 @@ function startNotice({ line, state }: LineSummary) {
     : `Démarré le ${formatDate(line.startedOn)}`
 }
 
-function LineLabel({ summary }: { summary: LineSummary }) {
+function LineLabel({
+  summary,
+  entityLabel,
+}: {
+  summary: LineSummary
+  /** Shown only when the project bills through several entities. */
+  entityLabel?: string
+}) {
   return (
     <div className="min-w-0">
       <span className="block font-medium">{summary.line.label}</span>
       <span className="block text-xs text-muted-foreground">
         {startNotice(summary)}
       </span>
+      {entityLabel ? (
+        <Badge variant="outline" className="mt-1.5 text-muted-foreground">
+          {entityLabel}
+        </Badge>
+      ) : null}
     </div>
   )
 }
@@ -142,9 +155,13 @@ function LineLabel({ summary }: { summary: LineSummary }) {
 function RowActions({
   summary,
   projectId,
+  clients,
+  projectClientId,
 }: {
   summary: LineSummary
   projectId: string
+  clients: Client[]
+  projectClientId: string
 }) {
   const remaining = summary.count - summary.placed
 
@@ -164,7 +181,12 @@ function RowActions({
           remaining={remaining}
         />
       ) : null}
-      <EditServiceLineDialog projectId={projectId} line={summary.line} />
+      <EditServiceLineDialog
+        projectId={projectId}
+        line={summary.line}
+        clients={clients}
+        projectClientId={projectClientId}
+      />
       <DeleteServiceLineDialog projectId={projectId} line={summary.line} />
     </div>
   )
@@ -191,10 +213,15 @@ function totals(summaries: LineSummary[]) {
 function ServiceLinesTable({
   lines,
   projectId,
+  clients,
+  projectClientId,
   editable = false,
 }: {
   lines: LineSummary[]
   projectId: string
+  clients: Client[]
+  /** Owner of the project — the default billing entity of every line. */
+  projectClientId: string
   editable?: boolean
 }) {
   if (lines.length === 0) {
@@ -213,6 +240,20 @@ function ServiceLinesTable({
 
   const footer = totals(lines)
 
+  // Tags appear only once the postes split across entities: on a project
+  // billed to a single structure they would repeat the client's name per row.
+  const entityOf = (summary: LineSummary) =>
+    summary.line.billedTo ?? projectClientId
+  const multiEntity = new Set(lines.map(entityOf)).size > 1
+  const entityLabelFor = (summary: LineSummary) => {
+    if (!multiEntity) {
+      return undefined
+    }
+
+    const entity = entityOf(summary)
+    return clients.find((client) => client.id === entity)?.label ?? entity
+  }
+
   return (
     <div className="overflow-hidden rounded-xl ring-1 ring-foreground/10">
       {/* Stacked below `md`, where six columns stop fitting. Only one of the
@@ -221,7 +262,10 @@ function ServiceLinesTable({
         {lines.map((summary) => (
           <li key={summary.line.id} className="space-y-3 p-4">
             <div className="flex items-start justify-between gap-3">
-              <LineLabel summary={summary} />
+              <LineLabel
+                summary={summary}
+                entityLabel={entityLabelFor(summary)}
+              />
               <LineStateBadge state={summary.state} />
             </div>
 
@@ -247,7 +291,12 @@ function ServiceLinesTable({
             </dl>
 
             {editable ? (
-              <RowActions summary={summary} projectId={projectId} />
+              <RowActions
+                summary={summary}
+                projectId={projectId}
+                clients={clients}
+                projectClientId={projectClientId}
+              />
             ) : null}
           </li>
         ))}
@@ -276,7 +325,10 @@ function ServiceLinesTable({
           {lines.map((summary) => (
             <TableRow key={summary.line.id}>
               <TableCell className="max-w-72 py-3 pl-4 whitespace-normal">
-                <LineLabel summary={summary} />
+                <LineLabel
+                  summary={summary}
+                  entityLabel={entityLabelFor(summary)}
+                />
               </TableCell>
               <TableCell>
                 <Progress summary={summary} />
@@ -302,7 +354,12 @@ function ServiceLinesTable({
               </TableCell>
               {editable ? (
                 <TableCell className="pr-4">
-                  <RowActions summary={summary} projectId={projectId} />
+                  <RowActions
+                    summary={summary}
+                    projectId={projectId}
+                    clients={clients}
+                    projectClientId={projectClientId}
+                  />
                 </TableCell>
               ) : null}
             </TableRow>

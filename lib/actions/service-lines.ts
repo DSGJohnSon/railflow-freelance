@@ -9,7 +9,7 @@ import { parseIsoDate } from "@/lib/format"
 import { createDocumentId } from "@/lib/ids"
 import { parseSchedule } from "@/lib/schedule"
 import { placeInstalments, unschedule } from "@/lib/scheduling"
-import { loadProjects, saveProjects } from "@/lib/store"
+import { loadClients, loadProjects, saveProjects } from "@/lib/store"
 
 function findProject(projects: Project[], projectId: string) {
   const project = projects.find((entry) => entry.id === projectId)
@@ -35,6 +35,36 @@ function findLine(project: Project, lineId: string) {
   return line
 }
 
+/**
+ * The billing entity picked in the form, reduced to its canonical form: the
+ * project's client is the default and is never stored, so a poste only ever
+ * carries `billedTo` when it points somewhere else.
+ */
+async function resolveBilledTo(formData: FormData, project: Project) {
+  const billedTo = text(formData, "billedTo")
+
+  if (!billedTo || billedTo === project.clientId) {
+    return undefined
+  }
+
+  const clients = await loadClients()
+
+  if (!clients.some((client) => client.id === billedTo)) {
+    throw new EditingError("Entité de facturation introuvable.")
+  }
+
+  return billedTo
+}
+
+/** Whether the line still has planned instalments sitting on the calendar. */
+function hasPlannedShares(project: Project, lineId: string) {
+  return (project.dues ?? []).some(
+    (due) =>
+      due.status === "FUTURE" &&
+      due.invoice?.breakdown?.some((share) => share.lineId === lineId)
+  )
+}
+
 export async function saveServiceLine(
   formData: FormData
 ): Promise<ActionResult> {
@@ -54,14 +84,25 @@ export async function saveServiceLine(
     const projects = await loadProjects()
     const project = findProject(projects, text(formData, "projectId"))
     const lineId = text(formData, "lineId")
+    const billedTo = await resolveBilledTo(formData, project)
 
     if (lineId) {
       const line = findLine(project, lineId)
+
+      // The planned dues carry the old entity, and silently reshuffling them
+      // would rewrite dates behind the user's back — so the flow is explicit:
+      // pause, change the entity, resume.
+      if (line.billedTo !== billedTo && hasPlannedShares(project, lineId)) {
+        throw new EditingError(
+          "Mettez d'abord la facturation en pause : les mensualités planifiées de ce poste sont rattachées à l'ancienne entité."
+        )
+      }
 
       // The already-issued invoices are left alone: rewriting the plan changes
       // what is still owed, never what a client has already been charged.
       line.label = label
       line.schedule = parsed.schedule
+      line.billedTo = billedTo
     } else {
       const quoteId = text(formData, "quoteId")
       const quote = (project.quotes ?? []).find((entry) => entry.id === quoteId)
@@ -74,6 +115,7 @@ export async function saveServiceLine(
         id: createDocumentId(),
         label,
         schedule: parsed.schedule,
+        billedTo,
       }
 
       quote.lines = [...(quote.lines ?? []), line]
@@ -103,7 +145,18 @@ export async function startServiceLine(
     const lineId = text(formData, "lineId")
     const line = findLine(project, lineId)
 
-    const placed = placeInstalments(project, line, parseIsoDate(startedOn))
+    // Resolved here rather than in the scheduler, which is kept free of I/O.
+    const entityLabel = line.billedTo
+      ? (await loadClients()).find((client) => client.id === line.billedTo)
+          ?.label
+      : undefined
+
+    const placed = placeInstalments(
+      project,
+      line,
+      parseIsoDate(startedOn),
+      entityLabel
+    )
 
     if (placed === 0) {
       throw new EditingError(

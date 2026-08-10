@@ -81,17 +81,26 @@ export function unschedule(project: Project, lineId: string) {
  *
  * A month already planned takes the instalment into its own invoice rather
  * than opening a second one — a month billing three prestations stays one
- * invoice. A month whose invoice has gone out is left alone and gets a due of
- * its own, because its total has to keep matching the paper the client holds.
+ * invoice per billed entity. Lines invoiced to different entities never share
+ * an invoice: each SIRET gets its own paper, so a month split across two
+ * entities carries two dues. A month whose invoice has gone out is left alone
+ * and gets a due of its own, because its total has to keep matching the paper
+ * the client holds.
+ *
+ * `entityLabel` names the recipient on the invoice label when the line is
+ * billed to someone other than the project's client — without it, two
+ * invoices of the same month would be indistinguishable.
  */
 export function placeInstalments(
   project: Project,
   line: ServiceLine,
-  from: Date
+  from: Date,
+  entityLabel?: string
 ) {
   const placed = placedCount(project, line.id)
   const remaining = line.schedule.slice(placed)
   const dues = project.dues ?? []
+  const entity = line.billedTo ?? project.clientId
 
   remaining.forEach((amount, position) => {
     const date = addMonths(from, position)
@@ -103,7 +112,9 @@ export function placeInstalments(
 
     const slot = dues.find(
       (due) =>
-        due.status === "FUTURE" && toIsoDate(due.date) === toIsoDate(date)
+        due.status === "FUTURE" &&
+        toIsoDate(due.date) === toIsoDate(date) &&
+        (due.billedTo ?? project.clientId) === entity
     )
 
     if (slot?.invoice) {
@@ -116,7 +127,10 @@ export function placeInstalments(
       id: createDocumentId(),
       // No number yet: an invoice is numbered when it is issued, so a slot
       // still ahead carries the month it covers.
-      label: `Facture — ${formatMonth(date)}`,
+      label:
+        line.billedTo && entityLabel
+          ? `Facture ${entityLabel} — ${formatMonth(date)}`
+          : `Facture — ${formatMonth(date)}`,
       amount,
       type: "FACTURE" as const,
       breakdown: [share],
@@ -127,7 +141,15 @@ export function placeInstalments(
       return
     }
 
-    dues.push({ id: createDueId(), date, status: "FUTURE", invoice })
+    // The raw value rather than the resolved entity: absent keeps meaning
+    // "the project's client", the single canonical form used everywhere.
+    dues.push({
+      id: createDueId(),
+      date,
+      status: "FUTURE",
+      invoice,
+      billedTo: line.billedTo,
+    })
   })
 
   // Only ever set once: it records when the prestation went live, and a

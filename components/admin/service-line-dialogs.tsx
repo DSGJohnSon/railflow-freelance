@@ -9,7 +9,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react"
 
-import type { Quote, ServiceLine } from "@/data/types"
+import type { Client, Quote, ServiceLine } from "@/data/types"
 import { Field, FormDialog } from "@/components/admin/form-dialog"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -60,6 +60,50 @@ function QuoteField({ quotes }: { quotes: Quote[] }) {
   )
 }
 
+/**
+ * Who the line's invoices are addressed to. Defaults to the project's client,
+ * which is the right answer for every project billed to a single entity — the
+ * field only matters when a client pays through several structures.
+ */
+function BilledToField({
+  clients,
+  projectClientId,
+  line,
+}: {
+  clients: Client[]
+  projectClientId: string
+  line?: ServiceLine
+}) {
+  const id = React.useId()
+  const [value, setValue] = React.useState(line?.billedTo ?? projectClientId)
+
+  return (
+    <div className="grid gap-2">
+      <Label htmlFor={id}>Facturé à</Label>
+      <Select
+        name="billedTo"
+        value={value}
+        onValueChange={(next) => setValue(next ?? projectClientId)}
+      >
+        <SelectTrigger id={id} className="w-full">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {clients.map((client) => (
+            <SelectItem key={client.id} value={client.id}>
+              {client.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <p className="text-xs text-muted-foreground">
+        L&apos;entité juridique destinataire des factures de ce poste. Chaque
+        mois produit une facture par entité.
+      </p>
+    </div>
+  )
+}
+
 function ScheduleField({ line }: { line?: ServiceLine }) {
   return (
     <Field
@@ -76,9 +120,13 @@ function ScheduleField({ line }: { line?: ServiceLine }) {
 function CreateServiceLineDialog({
   projectId,
   quotes,
+  clients,
+  projectClientId,
 }: {
   projectId: string
   quotes: Quote[]
+  clients: Client[]
+  projectClientId: string
 }) {
   return (
     <FormDialog
@@ -103,6 +151,7 @@ function CreateServiceLineDialog({
         autoFocus
       />
       <ScheduleField />
+      <BilledToField clients={clients} projectClientId={projectClientId} />
     </FormDialog>
   )
 }
@@ -110,9 +159,13 @@ function CreateServiceLineDialog({
 function EditServiceLineDialog({
   projectId,
   line,
+  clients,
+  projectClientId,
 }: {
   projectId: string
   line: ServiceLine
+  clients: Client[]
+  projectClientId: string
 }) {
   return (
     <FormDialog
@@ -122,13 +175,18 @@ function EditServiceLineDialog({
         </Button>
       }
       title="Modifier le poste"
-      description="Les factures déjà émises ne bougent pas : seul ce qui reste à devoir est recalculé."
+      description="Les factures déjà émises ne bougent pas : seul ce qui reste à devoir est recalculé. Pour changer l'entité facturée, mettez d'abord la facturation en pause."
       action={saveServiceLine}
     >
       <input type="hidden" name="projectId" value={projectId} />
       <input type="hidden" name="lineId" value={line.id} />
       <Field label="Libellé" name="label" defaultValue={line.label} required />
       <ScheduleField line={line} />
+      <BilledToField
+        clients={clients}
+        projectClientId={projectClientId}
+        line={line}
+      />
     </FormDialog>
   )
 }

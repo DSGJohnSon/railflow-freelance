@@ -32,6 +32,12 @@ export type ServiceLine = {
    * delivery holds a plan without dates rather than dates nobody committed to.
    */
   startedOn?: Date
+  /**
+   * The legal entity this line is invoiced to, when it is not the project's
+   * client — a client who pays each prestation through a different SIRET.
+   * Absent otherwise, so the project's client stays the single default.
+   */
+  billedTo?: Client["id"]
 }
 
 /**
@@ -100,6 +106,12 @@ export type Due = {
    */
   paidOn?: Date
   invoice?: Invoice
+  /**
+   * The entity the invoice is addressed to, frozen when the due is placed: an
+   * issued document keeps its recipient even if the line later moves to
+   * another entity. Absent when it is simply the project's client.
+   */
+  billedTo?: Client["id"]
 }
 
 export type Project = {

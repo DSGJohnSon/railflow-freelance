@@ -68,6 +68,21 @@ export async function deleteClient(formData: FormData): Promise<ActionResult> {
       )
     }
 
+    // A client can also be the billing entity of another client's postes and
+    // échéances — deleting it would leave those pointing at nobody.
+    const referenced = projects.some(
+      (project) =>
+        (project.quotes ?? []).some((quote) =>
+          (quote.lines ?? []).some((line) => line.billedTo === id)
+        ) || (project.dues ?? []).some((due) => due.billedTo === id)
+    )
+
+    if (referenced) {
+      throw new EditingError(
+        "Ce client est encore l'entité de facturation de postes ou d'échéances d'un autre client. Réaffectez-les d'abord."
+      )
+    }
+
     const clients = await loadClients()
     const remaining = clients.filter((client) => client.id !== id)
 
