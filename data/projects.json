@@ -302,11 +302,11 @@
         }
       },
       {
-        "id": "YHPJQ6PDatpgQmIgeqsPGw",
+        "id": "97EYH3w038VjSxMRyzXYDw",
         "date": "2027-03-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "4TARiqVyb9efgl4gcI2JBw",
+          "id": "gxVMYF4t7-aw2d71SGU0Jw",
           "label": "Facture — mars 2027",
           "amount": 12000,
           "type": "FACTURE",
@@ -320,11 +320,11 @@
         }
       },
       {
-        "id": "hXoGvkU-TtTpAN91nqEhDA",
+        "id": "0FliOFCzoSvD8Sa8srP1Rw",
         "date": "2027-04-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "-h4PYKRHGX9GujQKiC40dw",
+          "id": "KH6BtraB9EyGpEuFZvu0Xw",
           "label": "Facture — avril 2027",
           "amount": 12000,
           "type": "FACTURE",
@@ -338,11 +338,11 @@
         }
       },
       {
-        "id": "2Hf0cuvvX17Uwd0EZ5yEPA",
+        "id": "M7PWNqajr0kKWWWDOGOK4A",
         "date": "2027-05-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Ow7xtj0sW_fzoMTaajIlmg",
+          "id": "wz1XtqW9erB2WvUFIoy5Kw",
           "label": "Facture — mai 2027",
           "amount": 12000,
           "type": "FACTURE",
@@ -561,35 +561,11 @@
         }
       },
       {
-        "id": "BSKLw_m3gVMnFCuGItOzPQ",
-        "date": "2026-08-01",
-        "status": "FUTURE",
-        "invoice": {
-          "id": "JD88YvFRNLBVEsL2nBCD1w",
-          "label": "Facture Solar Home — août 2026",
-          "amount": 15000,
-          "type": "FACTURE",
-          "breakdown": [
-            {
-              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
-              "amount": 7500,
-              "index": 2
-            },
-            {
-              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
-              "amount": 7500,
-              "index": 2
-            }
-          ]
-        },
-        "billedTo": "solarhome-TmoEhk"
-      },
-      {
-        "id": "wAKqFkVKBj1kL91jBl3sPA",
+        "id": "nW91awBTtaceFOgeDDePEw",
         "date": "2026-09-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "rdrTlPOcN7ou2LJ5Y0x-dw",
+          "id": "ueHVAEc2bzlNPOxC2y5_Rw",
           "label": "Facture Solar Home — septembre 2026",
           "amount": 15000,
           "type": "FACTURE",
@@ -597,23 +573,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 3
+              "index": 2
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 3
+              "index": 2
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "AXBcBAGVXnuQlERQ5UNU9A",
+        "id": "M34JJXW8ijRVfDliQkJu9w",
         "date": "2026-09-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "-_9DyeuOfdpEQL69sLcMgw",
+          "id": "ajIjbGjOueKtsYWs9xC0mw",
           "label": "Facture — septembre 2026",
           "amount": 15500,
           "type": "FACTURE",
@@ -632,11 +608,11 @@
         }
       },
       {
-        "id": "V1Q9QMyT8RR1DMhbAfJWaw",
+        "id": "4RZpR0Ix3eQ8HvU67jQ-Eg",
         "date": "2026-10-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Pb-U5uGnwawBcCW6dutxVw",
+          "id": "i1emLcy9x2VSrcD4afGTbQ",
           "label": "Facture Solar Home — octobre 2026",
           "amount": 15000,
           "type": "FACTURE",
@@ -644,23 +620,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 4
+              "index": 3
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 4
+              "index": 3
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "xSPiU4OiUjPpFmsKwu9g_Q",
+        "id": "ju5sE42lw-zkg5yJ1d1QqQ",
         "date": "2026-10-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "tUIKVcg9tSzqQYRnDguMZA",
+          "id": "4f4PIbnKbsK14dBCdhToSg",
           "label": "Facture — octobre 2026",
           "amount": 15500,
           "type": "FACTURE",
@@ -679,11 +655,11 @@
         }
       },
       {
-        "id": "WxnZEkSS9nYbTFU3D1j-xQ",
+        "id": "84w5QOD18xY8QxmdSFjYMw",
         "date": "2026-11-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "khzJ7EFUjxQUY8rAiFeODw",
+          "id": "K67fmxP8s5mINzKRr8PDrA",
           "label": "Facture Solar Home — novembre 2026",
           "amount": 15000,
           "type": "FACTURE",
@@ -691,23 +667,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 5
+              "index": 4
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 5
+              "index": 4
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "jEDFpboG_xMLLykcs0VGiw",
+        "id": "pA0WeiHab6F7TzW-XY845Q",
         "date": "2026-11-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Zao81aSERDV81yF-hdnf5g",
+          "id": "Z_rSbe5qayElmw4VAiW0QA",
           "label": "Facture — novembre 2026",
           "amount": 15500,
           "type": "FACTURE",
@@ -726,11 +702,11 @@
         }
       },
       {
-        "id": "hjf12OQiCmV1pnc6NflqHQ",
+        "id": "RjhhThvio36LNeLXvdbVqA",
         "date": "2026-12-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Zqs9YTc2KmH0JGEDbh3Raw",
+          "id": "OGHY9vALYAjFx87csQjFeQ",
           "label": "Facture Solar Home — décembre 2026",
           "amount": 15000,
           "type": "FACTURE",
@@ -738,23 +714,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 6
+              "index": 5
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 6
+              "index": 5
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "Aax5LmqsMfBDZZSMJ6b8wA",
+        "id": "XA43dkVY52z8sLIk4WoyKQ",
         "date": "2026-12-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "rJP119d-0v1O2jh-JP4pug",
+          "id": "OGGhBrdtY6Jlaqz6bxesCw",
           "label": "Facture — décembre 2026",
           "amount": 15500,
           "type": "FACTURE",
@@ -773,11 +749,11 @@
         }
       },
       {
-        "id": "AKB6tvWK8B3GDs-k9tHMfA",
+        "id": "j1YvDE1UV02htf70BvIacA",
         "date": "2027-01-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "67on3MWHnAZixAmGz5GEpg",
+          "id": "ZBqFAreQaxdXdG6JGQAdEw",
           "label": "Facture Solar Home — janvier 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -785,23 +761,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 7
+              "index": 6
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 7
+              "index": 6
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "HqiPbf5N9BizLaePQkvGVQ",
+        "id": "U3J-nu2S7ol7VdC2StM_Cg",
         "date": "2027-01-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "2eZCdiaw7374DkvHlvOPBg",
+          "id": "ZwsEgqHuplNYX0cX4IdcmQ",
           "label": "Facture — janvier 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -820,11 +796,11 @@
         }
       },
       {
-        "id": "EekoE082-UW5EdbXSnYzQA",
+        "id": "2TdzWzDEhmTvcPRH7mkOpw",
         "date": "2027-02-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "E4IbEJYqlKhfmojyUN93pQ",
+          "id": "Cn_2xcIqwAAtb2QXrzjHbA",
           "label": "Facture Solar Home — février 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -832,23 +808,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 8
+              "index": 7
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 8
+              "index": 7
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "9Y5NMgInxviQ5sIbWpw6gw",
+        "id": "gnwPh903YYH3VRNysrerew",
         "date": "2027-02-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "6eFAOVB_oCvPMMaIqB-6UA",
+          "id": "XYQLSXxsugIWmw8K96ufJQ",
           "label": "Facture — février 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -867,11 +843,11 @@
         }
       },
       {
-        "id": "oeyRPMQstuQYwHqNOOLT-A",
+        "id": "-OD2-IjizHMdbamemuw1fA",
         "date": "2027-03-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "bASmNl5ACFGnml_aL84g5Q",
+          "id": "vqwO9say804jr3XPQKOGOg",
           "label": "Facture Solar Home — mars 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -879,23 +855,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 9
+              "index": 8
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 9
+              "index": 8
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "SztzmewYcJHSi_OsOfRS4w",
+        "id": "CHeXff8x-kUe_FR7Ka-Wmg",
         "date": "2027-03-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Hdd_bwD0nkWHRqvkT8zSNw",
+          "id": "JpADnXIWBqooRU63i78OKg",
           "label": "Facture — mars 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -914,11 +890,11 @@
         }
       },
       {
-        "id": "h4cBmPe6hjqy5rr5n_TM-Q",
+        "id": "Fza3pGxmiVLAD9vrhxLTnA",
         "date": "2027-04-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "y6rgmcqD6Z_Y64aBdyxogg",
+          "id": "9mqDOBkPw_Z05xesyGDWkQ",
           "label": "Facture Solar Home — avril 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -926,23 +902,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 10
+              "index": 9
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 10
+              "index": 9
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "p-wD8KEfKCbnc95U7L4ViQ",
+        "id": "-2i7ze_llQhTaPSjQd9OKQ",
         "date": "2027-04-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "-zH4JZB45_ywYVBkx-g6_A",
+          "id": "f6HVCwaC8RqfZRpYw0I7zQ",
           "label": "Facture — avril 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -961,11 +937,11 @@
         }
       },
       {
-        "id": "HnikN99P41SAHokaY06agg",
+        "id": "QS12IRdaTBCo7_W1xBL1Dg",
         "date": "2027-05-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "SErelIBvewN1fIiGy63hTQ",
+          "id": "M8aDz3p_EuaJkN2HyMeLWg",
           "label": "Facture Solar Home — mai 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -973,23 +949,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 11
+              "index": 10
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 11
+              "index": 10
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "5LliVfYRiASD-mk9fBKS_g",
+        "id": "vt__QCZbWB3HOCLKS1UMSA",
         "date": "2027-05-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "AFN0L-HqLzy_yHwErS4A1w",
+          "id": "zXRe1PH1r2BB3uV25azmKg",
           "label": "Facture — mai 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1008,11 +984,11 @@
         }
       },
       {
-        "id": "nNJY-U0rcyCgzkgw-lCePg",
+        "id": "g2a9HwroQHWC23w2AhdfuQ",
         "date": "2027-06-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Ak4-RIqNLjw-HgcOn1Iptg",
+          "id": "i4puumX2wCMeU7rH-g8GaA",
           "label": "Facture Solar Home — juin 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1020,23 +996,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 12
+              "index": 11
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 12
+              "index": 11
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "zswtoYgtkrDo_KMr5Ei3qQ",
+        "id": "gL2M28QKqWQhHdCRVww7xg",
         "date": "2027-06-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "9pcpCn4V9d0ekhL_2-MPVQ",
+          "id": "dd7J7A07U6ryUJ2xEaOhaw",
           "label": "Facture — juin 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1055,11 +1031,11 @@
         }
       },
       {
-        "id": "A-ruZrJ_WBk-t-yKxFC6lA",
+        "id": "iSNIMdFo0AbUUR23CKkAyw",
         "date": "2027-07-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "3UeMV5c7Cd7Z6wNt8K-H3w",
+          "id": "mvzahKvxWpPoN734dwqcoA",
           "label": "Facture Solar Home — juillet 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1067,23 +1043,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 13
+              "index": 12
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 13
+              "index": 12
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "z5jXOQEiFTrxTAZBMRt87w",
+        "id": "qFrmieJHzUOYAM_yMGHgLw",
         "date": "2027-07-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "7zKhiqlA-UoT_XT0rimLdQ",
+          "id": "Z09j-lYk4nzZlWsouxgBzA",
           "label": "Facture — juillet 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1102,11 +1078,11 @@
         }
       },
       {
-        "id": "V6fmhV3B-ewwox3NZlCjXw",
+        "id": "tUpP3gPOiX5ovyW8kUUxvQ",
         "date": "2027-08-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "1mfKTwdyTWUCCntWz0G1hA",
+          "id": "7kVpTJknRY82TRweE0QkRA",
           "label": "Facture Solar Home — août 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1114,23 +1090,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 14
+              "index": 13
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 14
+              "index": 13
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "sbO2s86z28bOsd0P2T_mtQ",
+        "id": "WKUp-RRn1wyPji5ffEN1Iw",
         "date": "2027-08-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "CyQxo_mREcPdmngjGkZXKQ",
+          "id": "BE870CgbxIJh-weP_qr2CA",
           "label": "Facture — août 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1149,11 +1125,11 @@
         }
       },
       {
-        "id": "gL7MfQotG7qYYyrKjdJNMw",
+        "id": "9YJZhxhkdjbtIfM4G_ziWg",
         "date": "2027-09-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "7puVroqiwIwCYPmnkeIKwg",
+          "id": "MS8ZeIGL7YIxrlCnbN__CQ",
           "label": "Facture Solar Home — septembre 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1161,23 +1137,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 15
+              "index": 14
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 15
+              "index": 14
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "tEG5Wm70fgLYsRXt81GiYw",
+        "id": "aD0L3XLp9HcBJaySdoWk9Q",
         "date": "2027-09-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "PDG_EcW8KHHW1WOVNsBvww",
+          "id": "HMuP799dqbfQu46TTpGhBw",
           "label": "Facture — septembre 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1196,11 +1172,11 @@
         }
       },
       {
-        "id": "O6VQaXdpxViyM72-aG7K9Q",
+        "id": "1z4Ta8DHZcrXv77xNtgCLA",
         "date": "2027-10-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "Jqzg3bAf8k9aZ1UrD0gm2w",
+          "id": "0iVXFdh8iVQGC7zDL1tQDw",
           "label": "Facture Solar Home — octobre 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1208,23 +1184,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 16
+              "index": 15
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 16
+              "index": 15
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "zHBAkr8luuRoAodjLQCt-A",
+        "id": "_46C44phwpI4uyoZx_Z4gQ",
         "date": "2027-10-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "XiVNeDX5TK57nZhkHJFMIQ",
+          "id": "Bj8XVPf6g8Py4kMYOffMxQ",
           "label": "Facture — octobre 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1243,11 +1219,11 @@
         }
       },
       {
-        "id": "4Drk4vpbjFjlYuu3WxX8gg",
+        "id": "ear-b602HA96J0ubhcjKug",
         "date": "2027-11-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "b6KhkQywQrOmidPmBP8Tpg",
+          "id": "cvSHvcAqtg7KRdWlMOC0EQ",
           "label": "Facture Solar Home — novembre 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1255,23 +1231,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 17
+              "index": 16
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 17
+              "index": 16
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "4TbpTzgRu7Did5J02EfG7w",
+        "id": "kqSF8dKeZ7utPt1KGIXoGQ",
         "date": "2027-11-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "-Y7At6ni190v9flFaA5s_Q",
+          "id": "RWALGDRx1LPyg9szDtmeUg",
           "label": "Facture — novembre 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1290,11 +1266,11 @@
         }
       },
       {
-        "id": "fK38lwWCmF03f1TWYfL4gg",
+        "id": "GyxJuDPkf1OXuUU0sTQ9DQ",
         "date": "2027-12-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "gzz_TJzhHE1tprukj_hadg",
+          "id": "qpwx2_BTgIE-Q2szqonY3A",
           "label": "Facture Solar Home — décembre 2027",
           "amount": 15000,
           "type": "FACTURE",
@@ -1302,23 +1278,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 18
+              "index": 17
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 18
+              "index": 17
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "Od6w4wEP9lANx8lm_SIw_g",
+        "id": "zCsGPVbEWoOw_g-NKY2vYg",
         "date": "2027-12-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "XVWbFchxeQwHHgEO24pwbA",
+          "id": "hkOAX7ygJYqSrPK6uKjHuw",
           "label": "Facture — décembre 2027",
           "amount": 15500,
           "type": "FACTURE",
@@ -1337,11 +1313,11 @@
         }
       },
       {
-        "id": "rim79kPsFA03RnQkCychMw",
+        "id": "oDMlFjbMoCNPNxeyXW6k8Q",
         "date": "2028-01-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "l8qkGgKvgu254ScX2T7D-A",
+          "id": "5TGAdTq8qKwjhDiW3dT4IA",
           "label": "Facture Solar Home — janvier 2028",
           "amount": 15000,
           "type": "FACTURE",
@@ -1349,23 +1325,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 19
+              "index": 18
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 19
+              "index": 18
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "PQLVuDxUCf_HfiYnYEbLIA",
+        "id": "tYjwXr2Sp55AGMLTE-0j0Q",
         "date": "2028-01-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "WTNO9JzoadB1Mam2kEqsjA",
+          "id": "3A7NzuJWWyPfds3d36CByw",
           "label": "Facture — janvier 2028",
           "amount": 15500,
           "type": "FACTURE",
@@ -1384,11 +1360,11 @@
         }
       },
       {
-        "id": "SEEE6XYMr0sqPo2WBVCOVQ",
+        "id": "H9NqFdXghX7aUG0rmJNG5g",
         "date": "2028-02-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "itNUnuz3dS9WcJZH8ZHxgA",
+          "id": "08DSSndmgg5pMDQg-krB2w",
           "label": "Facture Solar Home — février 2028",
           "amount": 15000,
           "type": "FACTURE",
@@ -1396,23 +1372,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 20
+              "index": 19
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 20
+              "index": 19
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "B40lWRklEs6WnlYqfV2a2A",
+        "id": "GsOfcWHmWWV8z4kMiQFwvg",
         "date": "2028-02-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "cNBuKhIGO-qkKgo1OQg0OQ",
+          "id": "cqK7ODrgcAM0niKNzrwPZg",
           "label": "Facture — février 2028",
           "amount": 15500,
           "type": "FACTURE",
@@ -1431,11 +1407,11 @@
         }
       },
       {
-        "id": "yNjoqxB4T8lcooXJVCTkuQ",
+        "id": "jizUET68OpIR0WXOdBOqdA",
         "date": "2028-03-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "1OjIqi0htZMD_Y0a3K45Dw",
+          "id": "k53JU8STreQpyPsz_0O6HQ",
           "label": "Facture Solar Home — mars 2028",
           "amount": 15000,
           "type": "FACTURE",
@@ -1443,23 +1419,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 21
+              "index": 20
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 21
+              "index": 20
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "aDbXrXLhGyTJ1aFJsLCFSQ",
+        "id": "0Bi-0GulyJ5xrQK8FtR14g",
         "date": "2028-03-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "zU66SMXmnImn5ggWA7WpvA",
+          "id": "Kp_EiFZ2HxQgK8Ctn3CLUg",
           "label": "Facture — mars 2028",
           "amount": 15500,
           "type": "FACTURE",
@@ -1478,11 +1454,11 @@
         }
       },
       {
-        "id": "Rv6Nbs9mAM0H78nM6At8nw",
+        "id": "9jDEOEADyMke6lJx4LqHKQ",
         "date": "2028-04-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "LKnsUKoG-8L8AXd2d2-qhQ",
+          "id": "R8ruA1y6y9caCUtthIFukQ",
           "label": "Facture Solar Home — avril 2028",
           "amount": 15000,
           "type": "FACTURE",
@@ -1490,23 +1466,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 22
+              "index": 21
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 22
+              "index": 21
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "1VehzfqISX720OYf5-LeTA",
+        "id": "HNv2p12YzPmdQuZipgPAGg",
         "date": "2028-04-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "0RUcFFrWC1cG0KWvUBg66A",
+          "id": "Rr0lCbrbinryRY2F-LyIXQ",
           "label": "Facture — avril 2028",
           "amount": 15500,
           "type": "FACTURE",
@@ -1525,11 +1501,11 @@
         }
       },
       {
-        "id": "dWrLdsPHoFeIPwpFfTGPOQ",
+        "id": "NjCiD9JYN1nKxQ_bbfBolQ",
         "date": "2028-05-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "vvHTDGY7Ze3dnkAbynivAQ",
+          "id": "bEwLkR2-G7NsZ1dTbOfo1g",
           "label": "Facture Solar Home — mai 2028",
           "amount": 15000,
           "type": "FACTURE",
@@ -1537,23 +1513,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 23
+              "index": 22
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 23
+              "index": 22
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "G3eBxNWF974Gsb_p1Y73zA",
+        "id": "C33vI_OwJoReDC7SQKP4YA",
         "date": "2028-05-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "1paKYZUIyubV7KVdrJZZhA",
+          "id": "BunL8kdPzMUguDFSQIDZiw",
           "label": "Facture — mai 2028",
           "amount": 15500,
           "type": "FACTURE",
@@ -1572,11 +1548,11 @@
         }
       },
       {
-        "id": "2F-DCgNUI3pmOmeyWjORKg",
+        "id": "Asi5kgJPlsNv6mwjrGWjug",
         "date": "2028-06-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "EbZFgZ3umuNn5NpOGdISbg",
+          "id": "DoZZB8bOloFK1QP2O37tCg",
           "label": "Facture Solar Home — juin 2028",
           "amount": 15000,
           "type": "FACTURE",
@@ -1584,23 +1560,23 @@
             {
               "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
               "amount": 7500,
-              "index": 24
+              "index": 23
             },
             {
               "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
               "amount": 7500,
-              "index": 24
+              "index": 23
             }
           ]
         },
         "billedTo": "solarhome-TmoEhk"
       },
       {
-        "id": "j57KdIAQVdZE0-iBYoQgow",
+        "id": "O5NC4Rw1K6gKvWUc6VHgjA",
         "date": "2028-06-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "D8h9RwTdqK8IPHMts_gBWA",
+          "id": "VO_JQuNuQjzkzNODgMUnHA",
           "label": "Facture — juin 2028",
           "amount": 15500,
           "type": "FACTURE",
@@ -1619,11 +1595,35 @@
         }
       },
       {
-        "id": "6hSxG6kggjBLtOrGI9AX1Q",
+        "id": "PfKlqMvyiy9DnhTCe03IRQ",
         "date": "2028-07-01",
         "status": "FUTURE",
         "invoice": {
-          "id": "0MpezbI9xbyufr59sozvow",
+          "id": "O-TmlsBL13vpcsjymqTb4g",
+          "label": "Facture Solar Home — juillet 2028",
+          "amount": 15000,
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "Ba3JMVpIJgQeKcQZmO__lg",
+              "amount": 7500,
+              "index": 24
+            },
+            {
+              "lineId": "LkrQjAbpVBNP705Hx7d8Lg",
+              "amount": 7500,
+              "index": 24
+            }
+          ]
+        },
+        "billedTo": "solarhome-TmoEhk"
+      },
+      {
+        "id": "ueGk9YLK0LUgwKPfAZ22mw",
+        "date": "2028-07-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "AoQE0FOc1EuntAOmOA3ttQ",
           "label": "Facture — juillet 2028",
           "amount": 15500,
           "type": "FACTURE",
