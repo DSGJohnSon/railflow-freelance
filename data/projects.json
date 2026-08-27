@@ -1642,5 +1642,50 @@
         }
       }
     ]
+  },
+  {
+    "id": "serrechevalierparapente2-algT",
+    "title": "Serre Chevalier Parapente 2026",
+    "clientId": "clementpons-OzQKes",
+    "quotes": [
+      {
+        "id": "RT7rbHM3GjNA9aSNmvmiRA",
+        "label": "Ajout Stage RandoVol & Cross",
+        "amount": 10000,
+        "file": "/files/quotes/Ajout_Stage_RandoVol_Cross.pdf",
+        "type": "DEVIS",
+        "lines": [
+          {
+            "id": "boOC-6c3sVU7wjTwYKJ7uw",
+            "label": "Ajout Stage RandoVol & Cross",
+            "schedule": [
+              10000
+            ],
+            "startedOn": "2026-08-27"
+          }
+        ]
+      }
+    ],
+    "dues": [
+      {
+        "id": "osNnlFuLxoYVUdOHUv-bmQ",
+        "date": "2026-09-01",
+        "status": "FUTURE",
+        "invoice": {
+          "id": "lVNIR87PeO8ugICIlxDgcg",
+          "label": "Facture — août 2026",
+          "amount": 10000,
+          "file": "/files/invoices/Facture_aout_2026.pdf",
+          "type": "FACTURE",
+          "breakdown": [
+            {
+              "lineId": "boOC-6c3sVU7wjTwYKJ7uw",
+              "amount": 10000,
+              "index": 1
+            }
+          ]
+        }
+      }
+    ]
   }
 ]
