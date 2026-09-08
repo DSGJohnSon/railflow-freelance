@@ -177,7 +177,8 @@
       {
         "id": "xQqiYlegxsqN1YzuGU4O8g",
         "date": "2026-08-01",
-        "status": "WAITING",
+        "status": "PAID",
+        "paidOn": "2026-08-27",
         "invoice": {
           "id": "KexPhrYCBrThZjicbkKB9A",
           "label": "AC_2026_0007",
@@ -196,11 +197,12 @@
       {
         "id": "FDKm6lINnEe3bEPs-iMMig",
         "date": "2026-09-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "zJbr_v4J6bbzi0jQChk0zw",
           "label": "Facture — septembre 2026",
           "amount": 12000,
+          "file": "/files/invoices/Facture_septembre_2026-2.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
