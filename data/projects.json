@@ -563,11 +563,12 @@
       {
         "id": "nW91awBTtaceFOgeDDePEw",
         "date": "2026-09-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "ueHVAEc2bzlNPOxC2y5_Rw",
           "label": "Facture Solar Home — septembre 2026",
           "amount": 15000,
+          "file": "/files/invoices/Facture_Solar_Home_septembre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -587,11 +588,12 @@
       {
         "id": "M34JJXW8ijRVfDliQkJu9w",
         "date": "2026-09-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "ajIjbGjOueKtsYWs9xC0mw",
           "label": "Facture — septembre 2026",
           "amount": 15500,
+          "file": "/files/invoices/Facture_septembre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
