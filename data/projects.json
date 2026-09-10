@@ -565,7 +565,8 @@
       {
         "id": "nW91awBTtaceFOgeDDePEw",
         "date": "2026-09-01",
-        "status": "WAITING",
+        "status": "PAID",
+        "paidOn": "2026-09-10",
         "invoice": {
           "id": "ueHVAEc2bzlNPOxC2y5_Rw",
           "label": "Facture Solar Home — septembre 2026",
@@ -1655,7 +1656,7 @@
       {
         "id": "RT7rbHM3GjNA9aSNmvmiRA",
         "label": "Ajout Stage RandoVol & Cross",
-        "amount": 10000,
+        "amount": 17500,
         "file": "/files/quotes/Ajout_Stage_RandoVol_Cross.pdf",
         "type": "DEVIS",
         "lines": [
@@ -1663,7 +1664,7 @@
             "id": "boOC-6c3sVU7wjTwYKJ7uw",
             "label": "Ajout Stage RandoVol & Cross",
             "schedule": [
-              10000
+              17500
             ],
             "startedOn": "2026-08-27"
           }
@@ -1672,19 +1673,19 @@
     ],
     "dues": [
       {
-        "id": "osNnlFuLxoYVUdOHUv-bmQ",
+        "id": "CR8c6u69nRPaB6WzW6STyQ",
         "date": "2026-09-01",
         "status": "WAITING",
         "invoice": {
-          "id": "lVNIR87PeO8ugICIlxDgcg",
-          "label": "Facture — août 2026",
-          "amount": 10000,
-          "file": "/files/invoices/Facture_aout_2026.pdf",
+          "id": "umpBPrw9TwXQ2pRkEO-39Q",
+          "label": "Facture — septembre 2026",
+          "amount": 17500,
+          "file": "/files/invoices/Facture_septembre_2026-3.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
               "lineId": "boOC-6c3sVU7wjTwYKJ7uw",
-              "amount": 10000,
+              "amount": 17500,
               "index": 1
             }
           ]
