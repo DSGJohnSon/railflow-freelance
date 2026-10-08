@@ -197,7 +197,8 @@
       {
         "id": "FDKm6lINnEe3bEPs-iMMig",
         "date": "2026-09-01",
-        "status": "WAITING",
+        "status": "PAID",
+        "paidOn": "2026-09-28",
         "invoice": {
           "id": "zJbr_v4J6bbzi0jQChk0zw",
           "label": "Facture — septembre 2026",
@@ -216,11 +217,12 @@
       {
         "id": "rD6d8-jRdaakMZX27CJrXQ",
         "date": "2026-10-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "t5kvDz8AZ14nWB34I3hiLw",
           "label": "Facture — octobre 2026",
           "amount": 12000,
+          "file": "/files/invoices/Facture_octobre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -234,11 +236,12 @@
       {
         "id": "QBEqv7lbTbvgSQ6VBxHLfA",
         "date": "2026-11-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "hy1JJFZcksoE2Ap0Fb3Z9Q",
           "label": "Facture — novembre 2026",
           "amount": 12000,
+          "file": "/files/invoices/Facture_novembre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -252,11 +255,12 @@
       {
         "id": "xJkRvU9PKFduOOJWFsUaXQ",
         "date": "2026-12-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "bBYTX97Idyi6Zoq23N1rHQ",
           "label": "Facture — décembre 2026",
           "amount": 12000,
+          "file": "/files/invoices/Facture_decembre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -514,6 +518,13 @@
             "startedOn": "2026-05-01"
           }
         ]
+      },
+      {
+        "id": "6NLy8gcnTdLFSWnzZ-DTsA",
+        "label": "Roll-Up - Solar Home 37",
+        "amount": 10000,
+        "file": "/files/quotes/Roll-Up_-_Solar_Home_37.pdf",
+        "type": "DEVIS"
       }
     ],
     "dues": [
@@ -591,7 +602,8 @@
       {
         "id": "M34JJXW8ijRVfDliQkJu9w",
         "date": "2026-09-01",
-        "status": "WAITING",
+        "status": "PAID",
+        "paidOn": "2026-10-07",
         "invoice": {
           "id": "ajIjbGjOueKtsYWs9xC0mw",
           "label": "Facture — septembre 2026",
@@ -615,11 +627,12 @@
       {
         "id": "4RZpR0Ix3eQ8HvU67jQ-Eg",
         "date": "2026-10-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "i1emLcy9x2VSrcD4afGTbQ",
           "label": "Facture Solar Home — octobre 2026",
           "amount": 15000,
+          "file": "/files/invoices/Facture_Solar_Home_octobre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -639,11 +652,12 @@
       {
         "id": "ju5sE42lw-zkg5yJ1d1QqQ",
         "date": "2026-10-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "4f4PIbnKbsK14dBCdhToSg",
           "label": "Facture — octobre 2026",
           "amount": 15500,
+          "file": "/files/invoices/Facture_octobre_2026-2.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -662,11 +676,12 @@
       {
         "id": "84w5QOD18xY8QxmdSFjYMw",
         "date": "2026-11-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "K67fmxP8s5mINzKRr8PDrA",
           "label": "Facture Solar Home — novembre 2026",
           "amount": 15000,
+          "file": "/files/invoices/Facture_Solar_Home_novembre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -686,11 +701,12 @@
       {
         "id": "pA0WeiHab6F7TzW-XY845Q",
         "date": "2026-11-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "Z_rSbe5qayElmw4VAiW0QA",
           "label": "Facture — novembre 2026",
           "amount": 15500,
+          "file": "/files/invoices/Facture_novembre_2026-2.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -709,11 +725,12 @@
       {
         "id": "RjhhThvio36LNeLXvdbVqA",
         "date": "2026-12-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "OGHY9vALYAjFx87csQjFeQ",
           "label": "Facture Solar Home — décembre 2026",
           "amount": 15000,
+          "file": "/files/invoices/Facture_Solar_Home_decembre_2026.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -733,11 +750,12 @@
       {
         "id": "XA43dkVY52z8sLIk4WoyKQ",
         "date": "2026-12-01",
-        "status": "FUTURE",
+        "status": "WAITING",
         "invoice": {
           "id": "OGGhBrdtY6Jlaqz6bxesCw",
           "label": "Facture — décembre 2026",
           "amount": 15500,
+          "file": "/files/invoices/Facture_decembre_2026-2.pdf",
           "type": "FACTURE",
           "breakdown": [
             {
@@ -1644,6 +1662,19 @@
               "index": 24
             }
           ]
+        }
+      },
+      {
+        "id": "G8lSLWhKQmhjUIaVwEyx_w",
+        "date": "2026-10-07",
+        "status": "PAID",
+        "paidOn": "2026-10-08",
+        "invoice": {
+          "id": "hoO74hBftA8pJ0sJgAxuQQ",
+          "label": "Roll-Up - Solar Home 37",
+          "amount": 10000,
+          "file": "/files/invoices/Roll-Up_-_Solar_Home_37.pdf",
+          "type": "FACTURE"
         }
       }
     ]
