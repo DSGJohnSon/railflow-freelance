@@ -54,9 +54,7 @@ function DueDate({ due, late }: { due: DueWithProject; late: boolean }) {
         dateTime={toIsoDate(deadline)}
         className={cn(
           "block",
-          late
-            ? "font-medium text-red-700 dark:text-red-400"
-            : "text-muted-foreground"
+          late ? "font-medium text-danger-strong" : "text-muted-foreground"
         )}
       >
         {formatShortDate(deadline)}
@@ -78,7 +76,7 @@ function DueDate({ due, late }: { due: DueWithProject; late: boolean }) {
       {/* Stated as a receipt, never compared to the deadline: the money is in,
           and a settled invoice has nothing left to answer for. */}
       {due.paidOn ? (
-        <span className="block text-xs text-emerald-700 dark:text-emerald-400">
+        <span className="block text-xs text-success-strong">
           réglée le{" "}
           <time dateTime={toIsoDate(due.paidOn)}>
             {formatShortDate(due.paidOn)}
@@ -127,7 +125,7 @@ function InvoiceBreakdown({ due }: { due: DueWithProject }) {
       ))}
 
       {unallocated !== 0 ? (
-        <li className="flex gap-2 text-red-700 dark:text-red-400">
+        <li className="flex gap-2 text-danger-strong">
           <span className="min-w-0 flex-1">Non ventilé</span>
           <span className="shrink-0 tabular-nums">
             {formatAmount(unallocated)}
@@ -212,12 +210,7 @@ function DueRow({
   const late = state === "LATE"
 
   return (
-    <TableRow
-      className={cn(
-        late &&
-          "bg-red-500/4 hover:bg-red-500/8 dark:bg-red-400/4 dark:hover:bg-red-400/8"
-      )}
-    >
+    <TableRow className={cn(late && "bg-danger/5 hover:bg-danger/8")}>
       {/* One date cell for the whole group: an échéance split across entities
           is one deadline answered by several invoices, and the layout says so. */}
       {span > 0 ? (
@@ -274,9 +267,7 @@ function DueCard({ due, state, entityLabel, showProject, editable }: RowProps) {
   const late = state === "LATE"
 
   return (
-    <li
-      className={cn("space-y-2 p-4", late && "bg-red-500/4 dark:bg-red-400/4")}
-    >
+    <li className={cn("space-y-2 p-4", late && "bg-danger/5")}>
       <div className="flex items-start justify-between gap-3 text-sm">
         <DueDate due={due} late={late} />
         <DueStateBadge state={state} />
@@ -289,7 +280,7 @@ function DueCard({ due, state, entityLabel, showProject, editable }: RowProps) {
       {showProject ? <ProjectLink due={due} className="block text-sm" /> : null}
 
       <div className="flex items-center justify-between gap-3">
-        <span className="font-heading text-base tabular-nums">
+        <span className="text-base font-bold tabular-nums">
           {due.invoice ? formatAmount(due.invoice.amount) : "—"}
         </span>
         {editable ? <RowActions due={due} /> : null}
@@ -370,8 +361,8 @@ function DuesTable({
   }
 
   return (
-    <div className="overflow-hidden rounded-xl ring-1 ring-foreground/10">
-      <ul className="divide-y md:hidden">
+    <div>
+      <ul className="-mx-4 -mb-4 divide-y border-t md:hidden">
         {rows.map((row) => (
           <DueCard key={row.due.id} {...row} />
         ))}
@@ -379,7 +370,7 @@ function DuesTable({
 
       <Table containerClassName="hidden scroll-shadow-x md:block">
         <TableHeader>
-          <TableRow className="bg-muted/40 hover:bg-muted/40">
+          <TableRow>
             <TableHead className="pl-4">Date limite</TableHead>
             <TableHead>Libellé</TableHead>
             {showProject ? <TableHead>Projet</TableHead> : null}

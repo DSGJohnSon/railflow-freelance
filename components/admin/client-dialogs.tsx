@@ -35,7 +35,7 @@ function CreateClientDialog() {
   return (
     <FormDialog
       trigger={
-        <Button size="sm" variant="outline">
+        <Button size="sm">
           <IconPlus />
           Ajouter un client
         </Button>

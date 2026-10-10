@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils"
  * a segment and its amount are read as the same thing.
  */
 export const billingTones = {
-  paid: "bg-emerald-600 dark:bg-emerald-500",
-  waiting: "bg-amber-500 dark:bg-amber-400",
-  planned: "bg-foreground/30",
+  paid: "bg-success",
+  waiting: "bg-warning",
+  planned: "bg-foreground/40",
   notStarted: "bg-foreground/10",
 } as const
 
@@ -49,7 +49,7 @@ function BillingBar({
   ...breakdown
 }: BillingBreakdown & {
   className?: string
-  size?: "default" | "sm"
+  size?: "default" | "sm" | "lg"
 }) {
   const { total } = breakdown
 
@@ -69,7 +69,7 @@ function BillingBar({
       aria-label={`Sur ${formatAmount(total)} : ${description}.`}
       className={cn(
         "flex w-full gap-px overflow-hidden rounded-full bg-foreground/10",
-        size === "sm" ? "h-1" : "h-1.5",
+        size === "sm" ? "h-1.5" : size === "lg" ? "h-3" : "h-2",
         className
       )}
     >

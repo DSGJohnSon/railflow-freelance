@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { IconLayoutDashboard } from "@tabler/icons-react"
 
 import { CreateClientDialog } from "@/components/admin/client-dialogs"
 import { EditingNotice } from "@/components/admin/editing-notice"
@@ -23,10 +24,33 @@ export default async function Page() {
   const editable = isEditingEnabled()
 
   return (
-    <AppShell homeHref="/" actions={<LogoutButton />}>
-      <div className="space-y-12">
-        <div className="space-y-2">
-          <h1 className="font-heading text-3xl tracking-tight">
+    <AppShell
+      homeHref="/"
+      nav={[
+        {
+          items: [
+            {
+              href: "/",
+              label: "Tableau de bord",
+              icon: <IconLayoutDashboard />,
+            },
+          ],
+        },
+        {
+          label: "Clients",
+          items: clients.map((client) => ({
+            href: `/clients/${client.id}`,
+            label: client.label,
+            avatar: true,
+          })),
+        },
+      ]}
+      footer={<LogoutButton />}
+      account={{ name: "Administrateur", role: "Admin" }}
+    >
+      <div className="space-y-8">
+        <div className="space-y-1">
+          <h1 className="text-[2rem] leading-tight font-bold tracking-tight">
             Administration
           </h1>
           <p className="text-muted-foreground">
@@ -48,7 +72,7 @@ export default async function Page() {
           )} · ${plural(projects.length, "projet", "projets")}`}
           action={editable ? <CreateClientDialog /> : undefined}
         >
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3">
             {clients.map((client) => (
               <ClientCard key={client.id} client={client} editable={editable} />
             ))}

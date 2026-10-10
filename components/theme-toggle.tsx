@@ -13,7 +13,8 @@ function ThemeToggle() {
   return (
     <Button
       variant="ghost"
-      size="icon-sm"
+      size="icon"
+      className="rounded-full text-muted-foreground"
       aria-label="Changer de thème"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >

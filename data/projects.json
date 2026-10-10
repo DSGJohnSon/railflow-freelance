@@ -1706,7 +1706,8 @@
       {
         "id": "CR8c6u69nRPaB6WzW6STyQ",
         "date": "2026-09-01",
-        "status": "WAITING",
+        "status": "PAID",
+        "paidOn": "2026-09-10",
         "invoice": {
           "id": "umpBPrw9TwXQ2pRkEO-39Q",
           "label": "Facture — septembre 2026",

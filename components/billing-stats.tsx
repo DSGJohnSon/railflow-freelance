@@ -1,83 +1,150 @@
+import {
+  IconCalendarEvent,
+  IconCircleCheck,
+  IconClockHour4,
+  IconHourglassEmpty,
+  type Icon,
+} from "@tabler/icons-react"
+
 import { BillingBar, billingTones } from "@/components/billing-bar"
 import { Card } from "@/components/ui/card"
 import { formatAmount } from "@/lib/format"
 import type { BillingSummary } from "@/lib/queries"
 import { cn } from "@/lib/utils"
 
+/**
+ * The icon tile of each stage, in the stage's own colour — the same one as its
+ * segment of the bar, so a card and a segment are read as the same thing.
+ */
+const tiles = {
+  paid: "bg-success/15 text-success-strong",
+  waiting: "bg-warning/20 text-warning-strong",
+  planned: "bg-foreground/10 text-foreground",
+  notStarted: "bg-foreground/5 text-muted-foreground",
+} satisfies Record<keyof typeof billingTones, string>
+
 function Stat({
   label,
   amount,
+  total,
   tone,
-  emphasis,
+  icon: Icon,
 }: {
   label: string
   amount: number
-  /** Ties the figure to its segment of the bar below. */
-  tone?: keyof typeof billingTones
-  emphasis?: "paid" | "waiting"
+  /** What the share at the bottom of the card is measured against. */
+  total: number
+  tone: keyof typeof billingTones
+  icon: Icon
 }) {
+  const share = total === 0 ? 0 : Math.round((amount / total) * 100)
+
   return (
-    <div className="px-(--card-spacing) py-4 first:pt-0 sm:py-0 sm:first:pt-0">
-      <dt className="flex items-center gap-1.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
-        {tone ? (
-          <span
-            aria-hidden
-            className={cn("size-1.5 shrink-0 rounded-full", billingTones[tone])}
-          />
-        ) : null}
-        {label}
-      </dt>
-      <dd
-        className={cn(
-          "mt-1.5 font-heading text-xl tabular-nums",
-          emphasis === "paid" && "text-emerald-700 dark:text-emerald-400",
-          emphasis === "waiting" && "text-amber-700 dark:text-amber-400"
-        )}
-      >
+    <Card className="gap-0 p-5">
+      <div className="flex items-start justify-between gap-3">
+        <p className="pt-1 text-base font-semibold text-foreground/70">
+          {label}
+        </p>
+        <span
+          aria-hidden
+          className={cn(
+            "flex size-12 shrink-0 items-center justify-center rounded-2xl",
+            tiles[tone]
+          )}
+        >
+          <Icon className="size-6" />
+        </span>
+      </div>
+      <p className="mt-2 text-2xl font-bold tracking-wide tabular-nums">
         {formatAmount(amount)}
-      </dd>
-    </div>
+      </p>
+      <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-muted-foreground">
+        <span
+          aria-hidden
+          className={cn("size-2 shrink-0 rounded-full", billingTones[tone])}
+        />
+        <span>
+          <span className="text-foreground tabular-nums">{share}%</span> du
+          contrat
+        </span>
+      </p>
+    </Card>
   )
 }
 
 function BillingStats({ summary }: { summary: BillingSummary }) {
   return (
-    <Card>
-      <dl className="grid divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
-        <Stat label="Total devisé" amount={summary.quoted} />
-        <Stat label="Payé" amount={summary.paid} tone="paid" emphasis="paid" />
+    <div className="space-y-6">
+      <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
+        <Stat
+          label="Payé"
+          amount={summary.paid}
+          total={summary.quoted}
+          tone="paid"
+          icon={IconCircleCheck}
+        />
         <Stat
           label="En attente"
           amount={summary.waiting}
+          total={summary.quoted}
           tone="waiting"
-          emphasis="waiting"
+          icon={IconClockHour4}
         />
-        <Stat label="Planifié" amount={summary.planned} tone="planned" />
+        <Stat
+          label="Planifié"
+          amount={summary.planned}
+          total={summary.quoted}
+          tone="planned"
+          icon={IconCalendarEvent}
+        />
         <Stat
           label="Non démarré"
           amount={summary.notStarted}
+          total={summary.quoted}
           tone="notStarted"
+          icon={IconHourglassEmpty}
         />
-      </dl>
+      </div>
 
-      <div className="space-y-2 px-(--card-spacing)">
+      <Card className="gap-6 p-5 sm:p-6">
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+          <div className="space-y-1">
+            <h2 className="text-xl font-bold sm:text-2xl">
+              Avancement du contrat
+            </h2>
+            {/* "du contrat" rather than a bare percentage: the figure measures
+                the whole scope, including what has not been delivered yet. */}
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground tabular-nums">
+                {summary.progress}%
+              </span>{" "}
+              du contrat réglé · reste{" "}
+              <span className="font-semibold text-foreground tabular-nums">
+                {formatAmount(summary.upcoming)}
+              </span>{" "}
+              à encaisser
+            </p>
+          </div>
+          <div className="sm:text-right">
+            <p className="text-sm font-semibold text-muted-foreground">
+              Total devisé
+            </p>
+            <p className="text-[1.75rem] leading-tight font-bold tracking-wide tabular-nums">
+              {formatAmount(summary.quoted)}
+            </p>
+          </div>
+        </div>
+
         <BillingBar
+          size="lg"
           total={summary.quoted}
           paid={summary.paid}
           waiting={summary.waiting}
           planned={summary.planned}
           notStarted={summary.notStarted}
         />
-        {/* "du contrat" rather than a bare percentage: the figure measures the
-            whole scope, including what has not been delivered yet. */}
-        <p className="text-xs text-muted-foreground">
-          <span className="tabular-nums">{summary.progress}%</span> du contrat
-          réglé · reste{" "}
-          <span className="tabular-nums">{formatAmount(summary.upcoming)}</span>{" "}
-          à encaisser
-        </p>
-      </div>
-    </Card>
+      </Card>
+    </div>
   )
 }
 

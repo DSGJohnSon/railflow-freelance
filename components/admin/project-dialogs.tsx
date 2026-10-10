@@ -15,7 +15,7 @@ function CreateProjectDialog({ clientId }: { clientId: string }) {
   return (
     <FormDialog
       trigger={
-        <Button size="sm" variant="outline">
+        <Button size="sm">
           <IconPlus />
           Ajouter un projet
         </Button>

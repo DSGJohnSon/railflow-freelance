@@ -132,7 +132,7 @@ function CreateDueDialog({ projectId }: { projectId: string }) {
   return (
     <FormDialog
       trigger={
-        <Button size="sm" variant="outline">
+        <Button size="sm">
           <IconPlus />
           Ajouter une échéance
         </Button>

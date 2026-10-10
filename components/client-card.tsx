@@ -7,6 +7,7 @@ import {
   EditClientDialog,
 } from "@/components/admin/client-dialogs"
 import { BillingBar } from "@/components/billing-bar"
+import { InitialsAvatar } from "@/components/initials-avatar"
 import {
   Card,
   CardAction,
@@ -14,7 +15,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { formatAddress, formatAmount, initials, plural } from "@/lib/format"
+import { formatAddress, formatAmount, plural } from "@/lib/format"
 import { getClientProjects, summarize } from "@/lib/queries"
 
 async function ClientCard({
@@ -30,14 +31,14 @@ async function ClientCard({
   return (
     // The title link is stretched over the whole card, so the action buttons
     // can sit next to it instead of nested inside an anchor.
-    <Card className="group relative h-full transition-shadow hover:shadow-md">
+    <Card className="group relative h-full gap-5 transition hover:-translate-y-0.5 hover:shadow-lg">
       <CardHeader>
-        <div className="flex items-start gap-3">
-          <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary font-heading text-xs font-medium text-secondary-foreground">
-            {initials(client.label)}
-          </span>
-          <div className="min-w-0 flex-1">
-            <CardTitle className="truncate">
+        {/* `min-w-0`: as a grid item it would otherwise grow to the full
+            title, pushing the actions out of the card instead of truncating. */}
+        <div className="flex min-w-0 items-start gap-3">
+          <InitialsAvatar label={client.label} className="size-12 text-base" />
+          <div className="min-w-0 flex-1 pt-0.5">
+            <CardTitle className="truncate text-lg">
               <Link
                 href={`/clients/${client.id}`}
                 className="rounded-xl outline-none after:absolute after:inset-0 focus-visible:ring-3 focus-visible:ring-ring/50"
@@ -58,7 +59,7 @@ async function ClientCard({
                 <DeleteClientDialog client={client} />
               </>
             ) : (
-              <IconArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:text-foreground" />
+              <IconArrowUpRight className="size-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:text-primary-strong" />
             )}
           </CardAction>
         </div>
@@ -70,12 +71,12 @@ async function ClientCard({
           {formatAddress(client.adress)}
         </p>
 
-        <div className="space-y-2 border-t pt-4">
+        <div className="space-y-2.5 rounded-xl bg-muted/60 p-4">
           <div className="flex items-baseline justify-between gap-2">
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm font-semibold text-muted-foreground">
               {plural(projects.length, "projet", "projets")}
             </span>
-            <span className="font-heading tabular-nums">
+            <span className="text-lg font-bold tabular-nums">
               {formatAmount(summary.quoted)}
             </span>
           </div>
@@ -87,8 +88,13 @@ async function ClientCard({
             notStarted={summary.notStarted}
           />
           <p className="text-xs text-muted-foreground">
-            <span className="tabular-nums">{formatAmount(summary.paid)}</span>{" "}
-            réglés · <span className="tabular-nums">{summary.progress}%</span>{" "}
+            <span className="font-semibold text-foreground tabular-nums">
+              {formatAmount(summary.paid)}
+            </span>{" "}
+            réglés ·{" "}
+            <span className="font-semibold text-foreground tabular-nums">
+              {summary.progress}%
+            </span>{" "}
             du contrat
           </p>
         </div>

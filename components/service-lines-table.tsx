@@ -33,27 +33,27 @@ const states = {
   SETTLED: {
     label: "Soldé",
     icon: IconCircleCheckFilled,
-    className:
-      "bg-emerald-500/10 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-400",
+    className: "bg-success/15 text-success-strong",
   },
+  // Neutral: yellow is the accent and already means "en attente de règlement".
   BILLING: {
     label: "En cours",
     icon: IconProgress,
-    className:
-      "bg-sky-500/10 text-sky-700 dark:bg-sky-400/10 dark:text-sky-400",
+    className: "bg-foreground/8 text-foreground",
   },
-  // Deliberately not amber: that colour already means "en attente de
-  // règlement", and a pause is a decision, not an unpaid bill.
+  // Deliberately not yellow either: a pause is a decision, not an unpaid bill.
   PAUSED: {
     label: "En pause",
     icon: IconPlayerPauseFilled,
-    className:
-      "bg-violet-500/10 text-violet-700 dark:bg-violet-400/10 dark:text-violet-400",
+    className: "bg-violet/15 text-violet-strong",
   },
+  // Outlined rather than filled, so it cannot be mistaken for "En cours" now
+  // that both are neutral — the dashes echo the icon.
   PENDING: {
     label: "À livrer",
     icon: IconCircleDashed,
-    className: "bg-muted text-muted-foreground",
+    className:
+      "border-dashed border-foreground/25 bg-transparent text-muted-foreground",
   },
 } satisfies Record<
   LineState,
@@ -255,10 +255,10 @@ function ServiceLinesTable({
   }
 
   return (
-    <div className="overflow-hidden rounded-xl ring-1 ring-foreground/10">
+    <div>
       {/* Stacked below `md`, where six columns stop fitting. Only one of the
           two layouts is ever rendered. */}
-      <ul className="divide-y md:hidden">
+      <ul className="-mx-4 -mb-4 divide-y border-t md:hidden">
         {lines.map((summary) => (
           <li key={summary.line.id} className="space-y-3 p-4">
             <div className="flex items-start justify-between gap-3">
@@ -278,7 +278,7 @@ function ServiceLinesTable({
               </div>
               <div>
                 <dt className="text-xs text-muted-foreground">Payé</dt>
-                <dd className="text-emerald-700 tabular-nums dark:text-emerald-400">
+                <dd className="text-success-strong tabular-nums">
                   {formatAmount(summary.paid)}
                 </dd>
               </div>
@@ -304,7 +304,7 @@ function ServiceLinesTable({
 
       <Table containerClassName="hidden scroll-shadow-x md:block">
         <TableHeader>
-          <TableRow className="bg-muted/40 hover:bg-muted/40">
+          <TableRow>
             <TableHead className="pl-4">Poste</TableHead>
             <TableHead className="w-48">Avancement</TableHead>
             <TableHead className="text-right">Total</TableHead>
@@ -339,7 +339,7 @@ function ServiceLinesTable({
               <TableCell
                 className={cn(
                   "text-right tabular-nums",
-                  summary.paid > 0 && "text-emerald-700 dark:text-emerald-400"
+                  summary.paid > 0 && "text-success-strong"
                 )}
               >
                 {formatAmount(summary.paid)}

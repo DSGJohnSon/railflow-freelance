@@ -73,7 +73,7 @@ export default async function Page({ params }: Params) {
   const editable = isEditingEnabled()
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <EditingNotice />
 
       <PageBreadcrumb
@@ -83,8 +83,8 @@ export default async function Page({ params }: Params) {
         ]}
       />
 
-      <div className="space-y-3">
-        <h1 className="font-heading text-3xl tracking-tight">
+      <div className="space-y-2">
+        <h1 className="text-[2rem] leading-tight font-bold tracking-tight">
           {project.title}
         </h1>
         <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
@@ -93,7 +93,7 @@ export default async function Page({ params }: Params) {
             {nextDue ? (
               <>
                 Prochain règlement attendu le{" "}
-                <span className="text-foreground">
+                <span className="font-semibold text-foreground">
                   {formatDate(paymentDeadline(nextDue))}
                 </span>
               </>
@@ -105,7 +105,7 @@ export default async function Page({ params }: Params) {
             <li className="flex items-center gap-1.5">
               <IconCalendarCheck className="size-4 shrink-0" />
               Fin de l&apos;échéancier le{" "}
-              <span className="text-foreground">
+              <span className="font-semibold text-foreground">
                 {formatDate(paymentDeadline(lastDue))}
               </span>
             </li>
@@ -116,6 +116,7 @@ export default async function Page({ params }: Params) {
       <BillingStats summary={summary} />
 
       <Section
+        card
         title="Devis"
         description="Le périmètre contractuel du projet."
         action={
@@ -134,6 +135,7 @@ export default async function Page({ params }: Params) {
           shown while editing, otherwise the first poste could never be added. */}
       {lines.length > 0 || editable ? (
         <Section
+          card
           title="Postes"
           description="Les prestations vendues, et où en est chacune. Une prestation non livrée n'a pas encore de dates : ses mensualités partent de sa mise en service."
           action={
@@ -176,6 +178,7 @@ export default async function Page({ params }: Params) {
       ) : null}
 
       <Section
+        card
         title="Échéances de facturation"
         description={`Le détail des règlements passés et à venir. ${PAYMENT_TERM_NOTICE}`}
         action={

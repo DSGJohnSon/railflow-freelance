@@ -15,7 +15,7 @@ function LoginForm() {
   const [state, formAction, pending] = useActionState(login, initialState)
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form action={formAction} className="space-y-5">
       <div className="space-y-2">
         <Label htmlFor="password">Mot de passe</Label>
         <Input
@@ -37,7 +37,7 @@ function LoginForm() {
         </Alert>
       ) : null}
 
-      <Button type="submit" disabled={pending} className="w-full">
+      <Button type="submit" size="lg" disabled={pending} className="w-full">
         <IconLock />
         {pending ? "Vérification…" : "Se connecter"}
       </Button>

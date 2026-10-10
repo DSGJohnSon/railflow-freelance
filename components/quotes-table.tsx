@@ -40,10 +40,10 @@ function QuotesTable({
   const total = quotes.reduce((sum, quote) => sum + quote.amount, 0)
 
   return (
-    <div className="overflow-hidden rounded-xl ring-1 ring-foreground/10">
+    <div>
       {/* Stacked below `sm`, where the label, the amount and the two action
           buttons stop fitting on one line. Only one layout is ever rendered. */}
-      <div className="sm:hidden">
+      <div className="-mx-4 -mb-4 border-t sm:hidden">
         <ul className="divide-y">
           {quotes.map((quote) => (
             <li key={quote.id} className="space-y-2 p-4">
@@ -51,7 +51,7 @@ function QuotesTable({
                 <DocumentLink document={quote} />
               </div>
               <div className="flex items-center justify-between gap-3">
-                <span className="font-heading text-base tabular-nums">
+                <span className="text-base font-bold tabular-nums">
                   {formatAmount(quote.amount)}
                 </span>
                 {editable ? (
@@ -64,17 +64,15 @@ function QuotesTable({
             </li>
           ))}
         </ul>
-        <div className="flex items-center justify-between gap-3 border-t bg-muted/50 p-4 text-sm">
+        <div className="flex items-center justify-between gap-3 border-t bg-muted/40 p-4 text-sm">
           <span className="font-medium">Total devisé</span>
-          <span className="font-heading tabular-nums">
-            {formatAmount(total)}
-          </span>
+          <span className="font-bold tabular-nums">{formatAmount(total)}</span>
         </div>
       </div>
 
       <Table containerClassName="hidden scroll-shadow-x sm:block">
         <TableHeader>
-          <TableRow className="bg-muted/40 hover:bg-muted/40">
+          <TableRow>
             <TableHead className="pl-4">Devis</TableHead>
             <TableHead className={editable ? "text-right" : "pr-4 text-right"}>
               Montant

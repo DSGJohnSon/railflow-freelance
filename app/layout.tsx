@@ -1,16 +1,16 @@
 import type { Metadata } from "next"
-import { Geist_Mono, Manrope, Space_Grotesk } from "next/font/google"
+import { Geist_Mono, Nunito_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
-const spaceGroteskHeading = Space_Grotesk({
+// Body and headings share this family, as in DashStack: the hierarchy comes
+// from weight and size — `--font-heading` points here in globals.css.
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-sans",
 })
-
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -42,8 +42,7 @@ export default function RootLayout({
         "antialiased",
         fontMono.variable,
         "font-sans",
-        manrope.variable,
-        spaceGroteskHeading.variable
+        nunitoSans.variable
       )}
     >
       <body>

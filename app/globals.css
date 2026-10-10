@@ -4,78 +4,109 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/**
+ * DashStack-inspired layout — a grey canvas, white rounded cards with a soft
+ * drop shadow — carrying a single accent: the yellow of the logo. As on the
+ * logo, what sits on the yellow is ink-dark, never white.
+ *
+ * The neutrals lean warm rather than DashStack's blue, so they sit with the
+ * yellow instead of against it. The dark theme is built from the logo's ink
+ * (#0c0c09): warm near-blacks, with the hover tint taking a hint of yellow.
+ *
+ * Yellow text is unreadable on white, so the accent has a `-strong` sibling, a
+ * deep amber for text and icons. The status tones follow the same pairing: the
+ * plain one for fills and tints, the `-strong` one for what sits on them.
+ *
+ * "En attente" reuses the accent on purpose: it is the one figure that calls
+ * for action. Green and red stay as the only other colours, for paid and late.
+ */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.148 0.004 228.8);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.148 0.004 228.8);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.148 0.004 228.8);
-    --primary: oklch(0.218 0.008 223.9);
-    --primary-foreground: oklch(0.987 0.002 197.1);
-    --secondary: oklch(0.963 0.002 197.1);
-    --secondary-foreground: oklch(0.218 0.008 223.9);
-    --muted: oklch(0.963 0.002 197.1);
-    --muted-foreground: oklch(0.56 0.021 213.5);
-    --accent: oklch(0.963 0.002 197.1);
-    --accent-foreground: oklch(0.218 0.008 223.9);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.925 0.005 214.3);
-    --input: oklch(0.925 0.005 214.3);
-    --ring: oklch(0.723 0.014 214.4);
-    --chart-1: oklch(0.872 0.007 219.6);
-    --chart-2: oklch(0.56 0.021 213.5);
-    --chart-3: oklch(0.45 0.017 213.2);
-    --chart-4: oklch(0.378 0.015 216);
-    --chart-5: oklch(0.275 0.011 216.9);
-    --radius: 0.45rem;
-    --sidebar: oklch(0.987 0.002 197.1);
-    --sidebar-foreground: oklch(0.148 0.004 228.8);
-    --sidebar-primary: oklch(0.218 0.008 223.9);
-    --sidebar-primary-foreground: oklch(0.987 0.002 197.1);
-    --sidebar-accent: oklch(0.963 0.002 197.1);
-    --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
-    --sidebar-border: oklch(0.925 0.005 214.3);
-    --sidebar-ring: oklch(0.723 0.014 214.4);
+    --background: #f6f6f3;
+    --foreground: #1f1f1c;
+    --card: #ffffff;
+    --card-foreground: #1f1f1c;
+    --popover: #ffffff;
+    --popover-foreground: #1f1f1c;
+    --primary: #f0b100;
+    --primary-foreground: #0c0c09;
+    --primary-strong: #8a5a00;
+    --secondary: #f1f1ec;
+    --secondary-foreground: #1f1f1c;
+    --muted: #f1f1ec;
+    --muted-foreground: #66655f;
+    --accent: #fdf4d8;
+    --accent-foreground: #1f1f1c;
+    --destructive: #ef3826;
+    --border: #e8e7e1;
+    --input: #d6d5ce;
+    --ring: #e0a500;
+    --success: #00b69b;
+    --success-strong: #007f6c;
+    --warning: #f0b100;
+    --warning-strong: #8a5a00;
+    --danger: #ef3826;
+    --danger-strong: #c42b1c;
+    --violet: #8280ff;
+    --violet-strong: #5a57e0;
+    --chart-1: #f0b100;
+    --chart-2: #00b69b;
+    --chart-3: #ef3826;
+    --chart-4: #8280ff;
+    --chart-5: #66655f;
+    --card-shadow: 6px 6px 54px 0 rgb(0 0 0 / 0.05);
+    --radius: 0.625rem;
+    --sidebar: #ffffff;
+    --sidebar-foreground: #1f1f1c;
+    --sidebar-primary: #f0b100;
+    --sidebar-primary-foreground: #0c0c09;
+    --sidebar-accent: #fdf4d8;
+    --sidebar-accent-foreground: #1f1f1c;
+    --sidebar-border: #e8e7e1;
+    --sidebar-ring: #e0a500;
 }
 
 .dark {
-    --background: oklch(0.148 0.004 228.8);
-    --foreground: oklch(0.987 0.002 197.1);
-    --card: oklch(0.218 0.008 223.9);
-    --card-foreground: oklch(0.987 0.002 197.1);
-    --popover: oklch(0.218 0.008 223.9);
-    --popover-foreground: oklch(0.987 0.002 197.1);
-    --primary: oklch(0.925 0.005 214.3);
-    --primary-foreground: oklch(0.218 0.008 223.9);
-    --secondary: oklch(0.275 0.011 216.9);
-    --secondary-foreground: oklch(0.987 0.002 197.1);
-    --muted: oklch(0.275 0.011 216.9);
-    --muted-foreground: oklch(0.723 0.014 214.4);
-    --accent: oklch(0.275 0.011 216.9);
-    --accent-foreground: oklch(0.987 0.002 197.1);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.56 0.021 213.5);
-    --chart-1: oklch(0.872 0.007 219.6);
-    --chart-2: oklch(0.56 0.021 213.5);
-    --chart-3: oklch(0.45 0.017 213.2);
-    --chart-4: oklch(0.378 0.015 216);
-    --chart-5: oklch(0.275 0.011 216.9);
-    --sidebar: oklch(0.218 0.008 223.9);
-    --sidebar-foreground: oklch(0.987 0.002 197.1);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.987 0.002 197.1);
-    --sidebar-accent: oklch(0.275 0.011 216.9);
-    --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.56 0.021 213.5);
+    --background: #121210;
+    --foreground: #f7f7f2;
+    --card: #1d1d1a;
+    --card-foreground: #f7f7f2;
+    --popover: #1d1d1a;
+    --popover-foreground: #f7f7f2;
+    --primary: #f0b100;
+    --primary-foreground: #0c0c09;
+    --primary-strong: #ffc933;
+    --secondary: #2a2a25;
+    --secondary-foreground: #f7f7f2;
+    --muted: #2a2a25;
+    --muted-foreground: #aaa99f;
+    --accent: #2d2a1f;
+    --accent-foreground: #f7f7f2;
+    --destructive: #f9604f;
+    --border: #2e2d29;
+    --input: #46453e;
+    --ring: #f0b100;
+    --success: #00b69b;
+    --success-strong: #4ad9b9;
+    --warning: #f0b100;
+    --warning-strong: #ffc933;
+    --danger: #f9604f;
+    --danger-strong: #ff8a7d;
+    --violet: #8280ff;
+    --violet-strong: #aaa8ff;
+    --card-shadow: 0 0 0 0 transparent;
+    --sidebar: #1d1d1a;
+    --sidebar-foreground: #f7f7f2;
+    --sidebar-primary: #f0b100;
+    --sidebar-primary-foreground: #0c0c09;
+    --sidebar-accent: #2d2a1f;
+    --sidebar-accent-foreground: #f7f7f2;
+    --sidebar-border: #2e2d29;
+    --sidebar-ring: #f0b100;
 }
 
 @theme inline {
     --font-sans: var(--font-sans);
-    --font-heading: var(--font-heading);
+    --font-heading: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -84,6 +115,14 @@
     --color-sidebar-primary: var(--sidebar-primary);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar: var(--sidebar);
+    --color-success: var(--success);
+    --color-success-strong: var(--success-strong);
+    --color-warning: var(--warning);
+    --color-warning-strong: var(--warning-strong);
+    --color-danger: var(--danger);
+    --color-danger-strong: var(--danger-strong);
+    --color-violet: var(--violet);
+    --color-violet-strong: var(--violet-strong);
     --color-chart-5: var(--chart-5);
     --color-chart-4: var(--chart-4);
     --color-chart-3: var(--chart-3);
@@ -100,6 +139,7 @@
     --color-secondary-foreground: var(--secondary-foreground);
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
+    --color-primary-strong: var(--primary-strong);
     --color-primary: var(--primary);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
@@ -107,6 +147,7 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
+    --shadow-card: var(--card-shadow);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -118,15 +159,16 @@
 
 /**
  * Edge shadows on a horizontally scrollable box, revealed only when it can
- * actually scroll. The two background-coloured covers are attached to the
- * content (`local`) so they slide away as it scrolls, uncovering the shadows,
- * which stay pinned to the box (`scroll`). With no overflow the covers sit
- * exactly over the shadows and nothing shows.
+ * actually scroll. The two card-coloured covers are attached to the content
+ * (`local`) so they slide away as it scrolls, uncovering the shadows, which
+ * stay pinned to the box (`scroll`). With no overflow the covers sit exactly
+ * over the shadows and nothing shows. Every scrollable table sits in a card,
+ * hence the card colour rather than the page one.
  */
 @utility scroll-shadow-x {
   background-image:
-    linear-gradient(to right, var(--background) 0 0.75rem, transparent 2rem),
-    linear-gradient(to left, var(--background) 0 0.75rem, transparent 2rem),
+    linear-gradient(to right, var(--card) 0 0.75rem, transparent 2rem),
+    linear-gradient(to left, var(--card) 0 0.75rem, transparent 2rem),
     linear-gradient(
       to right,
       color-mix(in oklab, var(--foreground) 12%, transparent),

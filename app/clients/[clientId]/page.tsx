@@ -8,10 +8,11 @@ import { CreateProjectDialog } from "@/components/admin/project-dialogs"
 import { BillingStats } from "@/components/billing-stats"
 import { DuesTable } from "@/components/dues-table"
 import { EmptyState } from "@/components/empty-state"
+import { InitialsAvatar } from "@/components/initials-avatar"
 import { ProjectCard } from "@/components/project-card"
 import { Section } from "@/components/section"
 import { isEditingEnabled } from "@/lib/editing"
-import { formatAddress, initials, plural } from "@/lib/format"
+import { formatAddress, plural } from "@/lib/format"
 import { PAYMENT_TERM_NOTICE } from "@/lib/payment-terms"
 import {
   getClient,
@@ -71,15 +72,16 @@ export default async function Page({ params }: Params) {
   const editable = isEditingEnabled()
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <EditingNotice />
 
       <div className="flex items-start gap-4">
-        <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-secondary font-heading text-sm font-medium text-secondary-foreground">
-          {initials(client.label)}
-        </span>
-        <div className="min-w-0 flex-1 space-y-3">
-          <h1 className="font-heading text-3xl tracking-tight">
+        <InitialsAvatar
+          label={client.label}
+          className="size-14 text-lg sm:size-16 sm:text-xl"
+        />
+        <div className="min-w-0 flex-1 space-y-2 pt-1">
+          <h1 className="text-[2rem] leading-tight font-bold tracking-tight">
             {client.label}
           </h1>
           <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-muted-foreground">
@@ -122,7 +124,7 @@ export default async function Page({ params }: Params) {
         }
       >
         {projects.length > 0 || billedVia.length > 0 ? (
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3">
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}
@@ -150,6 +152,7 @@ export default async function Page({ params }: Params) {
       </Section>
 
       <Section
+        card
         title="Échéances de facturation"
         description={`Toutes les échéances, payées et à venir. ${PAYMENT_TERM_NOTICE}`}
       >

@@ -131,7 +131,7 @@ function CreateServiceLineDialog({
   return (
     <FormDialog
       trigger={
-        <Button size="sm" variant="outline" disabled={quotes.length === 0}>
+        <Button size="sm" disabled={quotes.length === 0}>
           <IconPlus />
           Ajouter un poste
         </Button>
